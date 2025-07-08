@@ -29,7 +29,6 @@ div, ul, nav, header, footer, a, li, label, body{
     text-align: center;
     font-size: 20px;
     color: #48e;
-
 }
 
 .header__open-nav-button{
@@ -313,20 +312,17 @@ h1{
     .school{
     display: flex;
     flex-direction: row;
-    margin: auto;
     padding: 20px;
     min-height: 60vh;
     justify-content: space-evenly;
-    
     }
 
     .school__img-container{
         max-height: initial;
-        border-radius: 25px 10px 10px 25px;
+        border-radius: 50px 50px 50px 50px;
         background-color: white;
-        padding: 0px 50px
+        padding: 0px 50px;
     }
-
 }
 
 
@@ -360,7 +356,6 @@ h1{
     animation-timeline: view();
     animation-range: cover 10% contain 50%;
 }
-
 
 
 
@@ -411,7 +406,7 @@ h1{
 }
 
 .portfolio__project{
-    background-image: linear-gradient(#0009, #0009), url(imagen.png);  
+    background-image: linear-gradient(#0009, #0009), url(images/html_project.png);  
     background-position: center;
     background-size: cover;
     display: grid;
@@ -420,11 +415,13 @@ h1{
     animation: aparecer both;
     animation-timeline: view();
     animation-range: cover 5% cover 40%;
+    transition: opacity 0.6s ease, outline 0.6s ease;
 }
 
 .portfolio__project:hover{
     opacity: 0.74;
     outline: 1px solid #fff6;
+    background-image: url(images/html_project.png);
 }
 
 .portfolio__title{
@@ -485,7 +482,7 @@ h1{
     animation-range: cover 10% contain 50%;
 }
 
-.form__form{
+.form__form, .contact-info{
     padding: 12px;
     max-width: 600px;
     width: 100%;
@@ -493,7 +490,7 @@ h1{
     margin-bottom: 30px;
 }
 
-.form__input-container input, textarea{
+.form__input-container input, textarea, .contact-info{
     width: 100%;
     padding: 9px;
     font-size: 16px;
@@ -512,24 +509,61 @@ h1{
     padding: 12px;
     background-color: #18233f;
     color: #fff;
-
-}
-
-.form__titile{
-    font-size: 2.4rem;
 }
 
 .barra__space{
-    width: 80vh;
+    width: 50vh;
     padding: 0.5px;
     background-color: black;
 }
 
+.form__titile, .form__titile2{
+    font-size: 2.4rem;
+}
+
+
+
 
 /*------------------------CONTACT QUERIES-------------------*/
 
-@container form (min-width: 56.25rem){
+@media screen and (min-width: 1000px){
+
+    .form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "tittle_1 tittle_2"
+        "contacto contacto_a";
+        width: 80vw;
+        margin: auto;
+        gap: 20px;
+    }
+
+    .barra__space{
+        display: none;
+    }
+
+    .form__titile{
+        grid-area: tittle_1;
+        margin: auto;
+    }
+
+    .form__titile2{
+        grid-area: tittle_2;
+        margin: auto;
+    }
+
+    .contact-info{
+        grid-area: contacto_a;
+        box-shadow: 0px 0px 40px #0006;
+        background-image: radial-gradient(#18233f06,#18233f22);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 40px #0006;
+    }
+
     .form__form{
+        grid-area: contacto;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "name lastname"
@@ -544,19 +578,19 @@ h1{
     }
 
     .form__input-container:nth-child(1) {
-    grid-area: name;
+        grid-area: name;
     }
     .form__input-container:nth-child(2) {
-    grid-area: lastname;
+        grid-area: lastname;
     }
     .form__input-container:nth-child(3) {
-    grid-area: email;
+        grid-area: email;
     }
     .form__input-container:nth-child(4) {
-    grid-area: message;
+        grid-area: message;
     }
     .form__input-container:nth-child(5) {
-    grid-area: button;
+        grid-area: button;
     }
 }
 
