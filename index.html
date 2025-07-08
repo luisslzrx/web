@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <input type="checkbox" class="header__checkbox" id="open-menu">
+        <label for="open-menu" class="header__open-nav-button" role="button">=</label>
+        <div class="header__logo-container">
+            <img class="header__logo" src="logo.png">
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a href="#about">About</a></li>
+                <li class="header__nav-item"><a href="#portfolio">Portafolio</a></li>
+                <li class="header__nav-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="profile" id="about">
+        <div class="profile_wrapper">
+            <div class="profile__img-container">
+                <img src="imagen.png" class="profile__img" >
+            </div>
+            <div class="profile__data-container">
+                <div class="profile__data">
+                    <div class="profile__descripcion">
+                        <h1>¿Quienes es Lucas dalton?</h1>
+                        <p>Soy desarrollador frontend con experiencia en HTML, CSS y JavaScript, dedicado a construir interfaces web limpias, funcionales y adaptadas a distintos dispositivos. Me apasiona el diseño estructurado y la creación de experiencias de usuario intuitivas.
+                            Además, cuento con conocimientos en Python, C++ y Java, lo que me brinda una base sólida en lógica de programación y me permite entender mejor el desarrollo desde distintos niveles.
+                            Me considero una persona comprometida, responsable y con gran interés por el aprendizaje continuo. Siempre estoy explorando nuevas tecnologías, perfeccionando mis habilidades y buscando la mejor manera de aportar valor a los proyectos en los que participo.
+                            Mi objetivo es crecer profesionalmente mientras colaboro en el desarrollo de soluciones digitales útiles, eficientes y bien estructuradas.</p>
+                    </div>
+                    <div class="profile__skills-container">
+                        <h2>Skills</h2>
+                        <ul>
+                            <li class="profile__skill">
+                                <div class="load-bar">
+                                    <div class="load-bar__bar bar--80">80%</div>
+                                    </div>
+                                    <span class="profile__skill-name">HTML</span>
+                            </li>
+
+                            <li class="profile__skill">
+                                <div class="load-bar">
+                                    <div class="load-bar__bar bar--80">80%</div>
+                                    </div>
+                                    <span class="profile__skill-name">HTML</span>
+                            </li>
+
+                            <li class="profile__skill">
+                                <div class="load-bar">
+                                    <div class="load-bar__bar bar--80">80%</div>
+                                    </div>
+                                    <span class="profile__skill-name">HTML</span>
+                            </li>
+
+                            <li class="profile__skill">
+                                <div class="load-bar">
+                                    <div class="load-bar__bar bar--80">80%</div>
+                                    </div>
+                                    <span class="profile__skill-name">HTML</span>
+                            </li>
+
+                            <li class="profile__skill">
+                                <div class="load-bar">
+                                    <div class="load-bar__bar bar--80">80%</div>
+                                    </div>
+                                    <span class="profile__skill-name">HTML</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div >
+        </div>
+    </main>
+    <section class="portfolio" id="portfolio">
+        <h2 class="portfolio__title">Portfolio section</h2>
+        <div class="portfolio__project-container">
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+            <div class="portfolio__project">
+                <h2 class="portfolio__project-name">Project</h2>
+            </div>
+        </div>
+    </section>
+    <section class="form" id="contact">
+        <h2 class="form__titile">CONTACT</h2>
+        <form class="form__form">
+            <div class="form__input-container">
+                <label>Nombre
+                    <input type="text" placeholder="John">
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Apellido
+                    <input type="text" placeholder="Doe">
+                </label>    
+            </div>
+            <div class="form__input-container">
+                <label>E-mail
+                    <input type="email" placeholder="email@example.com">
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Mensaje
+                    <textarea placeholder="Your Menssage"></textarea>
+                </label>
+            </div>
+            <div class="form__input-container">
+                    <input type="submit">
+            </div>
+        </form>
+    </section>
+    <footer>
+        <strong>ADA 13</strong> - Copyright
+    </footer>
+</body>
+</html>
