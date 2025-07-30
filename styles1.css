@@ -57,6 +57,63 @@ body, div, section{
   color: var(--cool-gray);
 }
 
+/* Estilos botón hamburguesa - oculto por defecto */
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 15;
+}
+
+.header__burger span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Media query para pantallas pequeñas (ejemplo: hasta 768px) */
+@media (max-width: 768px) {
+  /* Ocultar menú horizontal */
+  .header nav {
+    display: none;
+    position: fixed;
+    top: 60px; /* debajo del header */
+    right: 0;
+    background-color: var(--oxford-blue);
+    width: 200px;
+    height: calc(100vh - 60px);
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+  }
+
+  /* Mostrar menú cuando tenga clase .active */
+  .header nav.active {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .header nav a {
+    font-size: 18px;
+    margin: 15px 20px;
+  }
+
+  /* Mostrar el botón hamburguesa */
+  .header__burger {
+    display: flex;
+  }
+}
+
 /* ----------------- Introducción ----------------- */
 .intro {
   display: flex;
@@ -136,6 +193,37 @@ body, div, section{
   animation-delay: 1.5s;
 }
 
+@media (max-width: 768px){
+
+  .info-inicio{
+    text-align: center;
+    height: 100vh;
+  }
+
+  .intro__saludo{
+  color: white;
+  font-size: 2rem;
+}
+
+.intro__name{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 5.4rem;
+  color: var(--powder-blue);
+}
+
+.intro__ocupacion{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--cool-gray);
+}
+
+.intro__descripcion{
+  margin-top: 20px;
+}
+
+}
 
 /* ----------------- Presentacion ----------------- */
 .about {
@@ -205,6 +293,19 @@ body, div, section{
 }
 
 
+@media (max-width: 768px){
+  .about {
+  height: 100vh;
+  z-index: none;
+}
+
+.about__text {
+  width: 80vw;
+}
+
+
+}
+
 /* ----------------- Sección de Skills ----------------- */
 .skills{
   background-color: var(--powder-blue);
@@ -236,20 +337,19 @@ body, div, section{
 }
 
 .skills__title1{
-  margin-bottom: 20px;
+  margin: 0;
   font-size: 25px;
 
 }
 
 .skills__contenido1{
   margin: 20px;
-  margin-bottom: 90px;
+  margin: 0;
 }
 
 .skills__title2{
-  margin: 50px 0 20px 0;
+  padding-top: 30px;
   font-size: 18px;
-
 }
 
 .skills__contenido2{
@@ -258,7 +358,7 @@ body, div, section{
 }
 
 .skills__title3{
-  margin: 50px 0 20px 0;
+  margin-top: 30px;
   font-size: 18px;
 
 }
@@ -274,6 +374,53 @@ body, div, section{
   animation-delay: 0.2s;
 }
 
+@media (max-width: 768px){
+
+  .skills__container{
+  flex-direction: column;
+  }
+
+  .skills__card-1{
+    height: 60vh;
+  }
+
+  .skills__icon{
+  margin: 0;
+  margin-top: 10px;
+}
+
+.skills__title1{
+  font-size: 25px;
+
+}
+
+.skills__contenido1{
+  margin: 10px;
+}
+
+.skills__title2{
+  font-size: 18px;
+  margin-top: 0;
+
+}
+
+.skills__contenido2{
+  margin: 0;
+
+}
+
+.skills__title3{
+  font-size: 18px;
+
+}
+
+.skills_contenido3{
+  margin: 0;
+
+}
+
+
+}
 
 
 /* ----------------- Proyectos ----------------- */
@@ -436,6 +583,23 @@ body, div, section{
 
 .form__form-items button:hover {
   background-color: var(--powder-blue);
+}
+
+@media (max-width: 768px){
+  .form{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .form__img-container{
+    width: 100vw;
+  }
+
+  .form__form{
+    width: 100vw;
+  }
+
+
 }
 
 
