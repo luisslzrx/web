@@ -199,32 +199,36 @@ body, div, section{
 
 @media (max-width: 768px){
 
-  .info-inicio{
-    text-align: center;
-    height: 100vh;
+    .info-inicio{
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .intro__saludo{
+    color: white;
+    font-size: 2rem;
   }
 
-  .intro__saludo{
-  color: white;
-  font-size: 2rem;
-}
+  .intro__name{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 650;
+    font-size: 5rem;
+    color: var(--powder-blue);
+  }
 
-.intro__name{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 5.4rem;
-  color: var(--powder-blue);
-}
-
-.intro__ocupacion{
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 2rem;
-  color: var(--cool-gray);
+  .intro__ocupacion{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--cool-gray);
 }
 
 .intro__descripcion{
   margin-top: 20px;
+}
+
+.intro__btn{
+  margin-bottom: 30px;
 }
 
 }
