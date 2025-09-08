@@ -245,11 +245,11 @@ body {
   }
 }
 
-/* ====== HERO LIQUID CRYSTAL ====== */
+/* ========= HERO LIQUID CRYSTAL ======== */
 .hero {
   position: relative;
   min-height: 100svh;
-  display: grid;
+  display: flex;
   place-items: center;
   overflow: hidden;
   isolation: isolate;
@@ -264,21 +264,6 @@ body {
       transparent 55%
     ),
     #060912;
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  align-items: center;
-  gap: 48px;
-  padding: clamp(80px, 12vw, 140px) 0 110px;
-}
-@media (max-width: 980px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 110px 0 90px;
-  }
 }
 
 /* tintas líquidas (capas animadas) */
@@ -365,14 +350,14 @@ body {
   color: var(--muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.86rem;
+  font-size: 1rem;
   margin: 0 0 0.4rem;
 }
 .hero-title {
   position: relative;
   margin: 0;
   font-weight: 800;
-  font-size: clamp(2.6rem, 6.8vw, 5.8rem);
+  font-size: clamp(3rem, 8vw, 8rem);
   line-height: 1.02;
   background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
   -webkit-background-clip: text;
@@ -397,7 +382,7 @@ body {
     );
 }
 .hero-role {
-  font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+  font-size: clamp(1.05rem, 2.4vw, 2rem);
   color: #e9f3ff;
   opacity: 0.9;
   margin: 0.4rem 0 0.6rem;
@@ -407,15 +392,17 @@ body {
   color: var(--muted);
   max-width: 62ch;
   margin: 0 0 1.3rem;
+  font-size: 1.2rem;
 }
 
-/* CTA */
+/* Diseño de los botones, contiene un diseño general y un diseño especifico para cada uno */
 .hero-cta {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
   margin: 1rem 0 1.2rem;
 }
+
 .btn {
   --ring: 0 0 0 0 rgba(0, 0, 0, 0);
   display: inline-flex;
@@ -437,15 +424,14 @@ body {
   outline: none;
   box-shadow: 0 0 0 4px rgba(0, 230, 255, 0.25);
 }
-.btn--primary {
-  color: #07131e;
+
+.btn--primary{
   background: linear-gradient(135deg, var(--brand-a), var(--brand-b));
+  color: #07131e;
+  backdrop-filter: blur(0px);
   border-color: transparent;
 }
-.btn--primary:hover {
-  box-shadow: 0 12px 30px rgba(0, 230, 255, 0.22),
-    0 16px 34px rgba(255, 0, 204, 0.18);
-}
+
 .btn--ghost {
   background: linear-gradient(
     180deg,
@@ -478,79 +464,7 @@ body {
   );
 }
 
-/* figura cristal */
-.hero-figure {
-  display: grid;
-  place-items: center;
-}
-.glass-card {
-  position: relative;
-  width: min(460px, 88vw);
-  aspect-ratio: 1 / 1.2;
-  border-radius: var(--radius-2xl);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.04)
-  );
-  border: 1px solid var(--glass-strong);
-  backdrop-filter: blur(16px) saturate(140%);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  overflow: hidden;
-  transform: perspective(1000px) rotateX(6deg) rotateY(-6deg);
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%,
-  100% {
-    transform: perspective(1000px) rotateX(6deg) rotateY(-6deg) translateY(0);
-  }
-  50% {
-    transform: perspective(1000px) rotateX(7.5deg) rotateY(-4deg)
-      translateY(-6px);
-  }
-}
-.glass-card__shine {
-  position: absolute;
-  inset: -20% -20%;
-  background: radial-gradient(
-      60% 40% at 20% 0%,
-      rgba(255, 255, 255, 0.55),
-      transparent 60%
-    ),
-    conic-gradient(
-      from 180deg,
-      rgba(0, 230, 255, 0.35),
-      rgba(255, 0, 204, 0.35),
-      rgba(124, 255, 178, 0.35),
-      rgba(0, 230, 255, 0.35)
-    );
-  mix-blend-mode: screen;
-  filter: blur(30px);
-  opacity: 0.35;
-  pointer-events: none;
-}
 
-.glass-card__ring {
-  position: absolute;
-  inset: auto -40% -38% -40%;
-  height: 70%;
-  background: radial-gradient(
-      60% 60% at 50% 0%,
-      rgba(0, 230, 255, 0.35),
-      transparent 60%
-    ),
-    radial-gradient(
-      60% 60% at 50% 100%,
-      rgba(255, 0, 204, 0.35),
-      transparent 60%
-    );
-  filter: blur(22px);
-  mix-blend-mode: screen;
-  opacity: 0.6;
-  pointer-events: none;
-}
 
 #network {
   position: absolute;
@@ -581,14 +495,19 @@ body {
   text-align: center;
 }
 
-.about__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #00e6ff, #ff00cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.about-text{
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
 }
+
 
 .about__subtitle {
   font-size: 1.2rem;
@@ -604,12 +523,24 @@ body {
   align-items: center;
 }
 
+.about__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00e6ff, #ff00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Texto */
 .about-text p {
   font-size: 1.2rem;
   color: var(--txt);
   margin-bottom: 20px;
   text-align: left;
+  font-weight: normal;
+  padding: 5px;
+
 }
 
 /* Imagen tipo cristal */

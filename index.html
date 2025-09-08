@@ -41,7 +41,7 @@
       <div class="header-sheen" aria-hidden="true"></div>
     </header>
 
-    <!-- HERO -->
+    <!-------------- HERO -------------------------->
     <main id="hero" class="hero" role="main">
       <!-- capas de fondo líquido -->
       <div class="ink ink--a" aria-hidden="true"></div>
@@ -51,11 +51,12 @@
       <!-- ruido suave para textura -->
       <div class="noise" aria-hidden="true"></div>
 
-      <section class="container hero-inner">
-        <div class="hero-copy">
+      <canvas id="network"></canvas>
+
+      <section class="container hero-copy">
           <p class="eyebrow">Hola, mi nombre es</p>
           <h1 class="hero-title">
-            Luis&nbsp;Salazar
+            Luis&nbsp;Salazar Aguilar
             <span class="title-glow" aria-hidden="true"></span>
           </h1>
           <p class="hero-role">Construyo experiencias web modernas</p>
@@ -65,8 +66,8 @@
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn--primary" href="CV_Luis_Salazar.pdf" target="_blank" rel="noopener">Ver CV</a>
-            <a class="btn btn--ghost" href="#proyectos">Explorar proyectos</a>
+            <a class="btn btn--primary" href="documents/LuisSalazarResume.pdf">Ver CV</a>
+            <a class="btn btn--ghost" href="#projects">Explorar proyectos</a>
           </div>
 
           <ul class="quick-meta" aria-label="Tecnologías y principios">
@@ -78,16 +79,6 @@
             <li>Responsive</li>
             <li>Código limpio</li>
           </ul>
-        </div>
-
-        <!-- figura visual líquida / “cristal” -->
-        <figure class="hero-figure" aria-label="Ilustración de desarrollador">
-          <div class="glass-card">
-            <div class="glass-card__shine" aria-hidden="true"></div>
-              <canvas id="network"></canvas>
-            <div class="glass-card__ring" aria-hidden="true"></div>
-          </div>
-        </figure>
         <script src="network.js"></script>
       </section>
       </main>
@@ -261,7 +252,7 @@
       </div>
     </section>
 
-    <!-- =======================SECCIÓN DE PROCESO =========================== -->
+    <!-- ======================= SECCIÓN DE PROCESO =========================== -->
     <section class="process" id="process">
       <div class="container process__content">
         <h2 class="process__title">Mi Proceso</h2>
@@ -324,9 +315,7 @@
       </div>
     </section>
 
-    <!-- =======================
-     SECCIÓN DE CONTACTO
-=========================== -->
+    <!-- ======================= SECCIÓN DE CONTACTO =========================== -->
     <section class="contact" id="contact">
       <div class="container contact__content">
         <h2 class="contact__title">Contacto</h2>
@@ -336,7 +325,7 @@
 
         <div class="contact__grid">
           <!-- Formulario -->
-          <form class="contact-form">
+          <form class="contact-form" action="https://formsubmit.co/luisgerdx521@gmail.com" method="POST">
             <p class="contact-name">¡Enviame un mensaje por aqui!</p>
             <input type="text" name="name" placeholder="Nombre" required />
             <input type="text" name="number" placeholder="Numero de telefono" required />
@@ -391,8 +380,7 @@
         </div>
       </div>
     </section>
-    
-
+  
     <footer class="site-footer" aria-label="Pie de página">
       <div class="container">
         <small>© 2025 · Construido con HTML, CSS y mucho café.</small>
