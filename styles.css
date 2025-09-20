@@ -490,18 +490,19 @@ body {
     flex-direction: column; /* Apila el contenido verticalmente */
     justify-content: flex-start; /* Alinea el contenido al principio (arriba) */
     text-align: center; /* Centra el texto */
-    min-height: 100vh; /* Usa vh en lugar de svh para evitar problemas con la barra de navegación */
-    padding-top: 35%; /* Añade espacio en la parte superior para un mejor diseño */
-    padding: 35% 5% 5% 5%;
+    min-height: 110vh; /* Usa vh en lugar de svh para evitar problemas con la barra de navegación */
+    padding: 40% 5% 5% 5%;
   }
 
   /* Reduce el tamaño de las fuentes para que quepan mejor */
   .eyebrow {
-    font-size: 20px
+    font-size: 20px;
   }
 
   .hero-title {
     font-size: 60px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .hero-role {
