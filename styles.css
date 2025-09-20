@@ -60,21 +60,15 @@ body {
   outline: 2px solid #fff;
 }
 
-/* contenedor */
-.container {
-  width: min(1200px, 92%);
-  margin-inline: auto;
-}
-
 /* ============ HEADER / ÍNDICE ================= */
 
 .site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* ¡Cambia esto! */
   align-items: center;
   padding: 30px;
   height: 10vh;
-  position: fixed; /* <--- cambia sticky por fixed */
+  position: fixed; /* <--- fija el archivo */
   top: 0;
   left: 0;
   width: 100%;     /* <--- asegura que cubra toda la pantalla */
@@ -116,6 +110,7 @@ body {
   color: var(--txt);
   font-weight: 700;
   letter-spacing: 0.3px;
+  padding-left: 10%;
 }
 .brand__dot {
   inline-size: 14px;
@@ -134,6 +129,10 @@ body {
   font-size: 1.06rem;
 }
 
+.site-nav{
+   padding-right: 10%;
+}
+
 /* nav */
 .site-nav ul {
   display: flex;
@@ -143,6 +142,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .site-nav a {
   --pad: 0.7rem 0.9rem;
   display: inline-flex;
@@ -250,8 +250,9 @@ body {
   position: relative;
   min-height: 100svh;
   display: flex;
-  place-items: center;
-  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;   /* hace que no se desborde la pagina */
   isolation: isolate;
   background: radial-gradient(
       1200px 600px at 10% 10%,
@@ -346,6 +347,12 @@ body {
 }
 
 /* copy */
+.hero-copy{
+  margin-top: 10%;
+  min-width: 95%;
+  margin-inline: auto;
+}
+
 .eyebrow {
   color: var(--muted);
   letter-spacing: 0.12em;
@@ -353,6 +360,7 @@ body {
   font-size: 1rem;
   margin: 0 0 0.4rem;
 }
+
 .hero-title {
   position: relative;
   margin: 0;
@@ -363,6 +371,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  z-index: 2;
 }
 .title-glow {
   position: absolute;
@@ -370,6 +379,7 @@ body {
   height: 14px;
   border-radius: 999px;
   filter: blur(10px);
+  z-index: 1;
   background: radial-gradient(
       80% 100% at 50% 30%,
       rgba(0, 230, 255, 0.45),
@@ -381,6 +391,7 @@ body {
       transparent 70%
     );
 }
+
 .hero-role {
   font-size: clamp(1.05rem, 2.4vw, 2rem);
   color: #e9f3ff;
@@ -464,8 +475,6 @@ body {
   );
 }
 
-
-
 #network {
   position: absolute;
   inset: 0;
@@ -475,9 +484,46 @@ body {
   border-radius: inherit;
 }
 
-/* =======================
-   SECCIÓN ACERCA DE
-=========================== */
+@media (max-width: 768px) {
+  /* Alineación y espaciado para móviles */
+  .hero {
+    flex-direction: column; /* Apila el contenido verticalmente */
+    justify-content: flex-start; /* Alinea el contenido al principio (arriba) */
+    text-align: center; /* Centra el texto */
+    min-height: 100vh; /* Usa vh en lugar de svh para evitar problemas con la barra de navegación */
+    padding-top: 35%; /* Añade espacio en la parte superior para un mejor diseño */
+    padding: 35% 5% 5% 5%;
+  }
+
+  /* Reduce el tamaño de las fuentes para que quepan mejor */
+  .eyebrow {
+    font-size: 20px
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-role {
+    font-size: 20px;
+  }
+
+  .hero-sub{
+    font-size: 13px;
+  }
+
+  /* Ajusta el espaciado de los botones */
+  .hero-cta {
+    justify-content: center; /* Centra los botones */
+  }
+
+  /* Reorganiza los metadatos para que se vean mejor */
+  .quick-meta {
+    justify-content: center; /* Centra la lista de metadatos */
+  }
+}
+
+/* ======================= SECCIÓN ACERCA DE =========================== */
 .about {
   height: 100vh;
   padding: 120px 10% 80px;

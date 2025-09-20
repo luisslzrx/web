@@ -37,9 +37,16 @@ class Particle {
   }
 }
 
+// Detecta si es un dispositivo móvil (ancho menor a 768px)
+const isMobile = window.innerWidth <= 768;
+
+// Define el número de partículas según el dispositivo
+const numberOfParticles = isMobile ? 15 : 45; // 15 para móviles, 35 para PC
+
 function initParticles() {
   particles = [];
-  for (let i = 0; i < 35; i++) {
+  // Usa la variable numberOfParticles para el bucle
+  for (let i = 0; i < numberOfParticles; i++) {
     particles.push(new Particle());
   }
 }
