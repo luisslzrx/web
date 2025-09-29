@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Luis Salazar | Desarrollador Frontend</title>
-    <meta name="description" content="Portafolio de Luis Salazar, desarrollador frontend que construye experiencias web modernas."/>
+    <meta
+      name="description"
+      content="Portafolio de Luis Salazar, desarrollador frontend que construye experiencias web modernas."
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -15,26 +22,31 @@
 
     <!-- ENCABEZADO / ÍNDICE -->
     <header class="site-header" role="banner">
-        <a href="#inicio" class="brand" aria-label="Ir a inicio">
-          <span class="brand__dot" aria-hidden="true"></span>
-          <span class="brand__name">Luis&nbsp;Salazar</span>
-        </a>
+      <a href="#inicio" class="brand" aria-label="Ir a inicio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__name">Luis&nbsp;Salazar</span>
+      </a>
 
-        <!-- Toggle móvil sin JS -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menú"/>
-        <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </label>
+      <!-- Toggle móvil sin JS -->
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-label="Abrir menú"
+      />
+      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
 
-        <nav class="site-nav" role="navigation" aria-label="Principal">
-          <ul>
-            <li><a href="#hero" class="is-active">Inicio</a></li>
-            <li><a href="#skills">Habilidades</a></li>
-            <li><a href="#project">Proyectos</a></li>
-            <li><a href="#process">Proceso</a></li>
-            <li><a href="#contact" class="pill">Contacto</a></li>
-          </ul>
-        </nav>
+      <nav class="site-nav" role="navigation" aria-label="Principal">
+        <ul>
+          <li><a href="#hero" class="is-active">Inicio</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#project">Proyectos</a></li>
+          <li><a href="#process">Proceso</a></li>
+          <li><a href="#contact" class="pill">Contacto</a></li>
+        </ul>
+      </nav>
       <!-- brillo superior del header -->
       <div class="header-sheen" aria-hidden="true"></div>
     </header>
@@ -52,34 +64,36 @@
       <canvas id="network"></canvas>
 
       <section class="hero-copy">
-          <p class="eyebrow">Hola, mi nombre es</p>
-          <h1 class="hero-title">
-            Luis&nbsp;Salazar Aguilar
-            <span class="title-glow" aria-hidden="true"></span>
-          </h1>
-          <p class="hero-role">Construyo experiencias web modernas</p>
-          <p class="hero-sub">
-            Diseño y programo cosas <strong>bellamente simples</strong>, con
-            enfoque en accesibilidad, rendimiento y detalle pixel-perfect.
-          </p>
+        <p class="eyebrow">Hola, mi nombre es</p>
+        <h1 class="hero-title">
+          Luis&nbsp;Salazar Aguilar
+          <span class="title-glow" aria-hidden="true"></span>
+        </h1>
+        <p class="hero-role">Construyo experiencias web modernas</p>
+        <p class="hero-sub">
+          Diseño y programo cosas <strong>bellamente simples</strong>, con
+          enfoque en accesibilidad, rendimiento y detalle pixel-perfect.
+        </p>
 
-          <div class="hero-cta">
-            <a class="btn btn--primary" href="documents/LuisSalazarResume.pdf">Ver CV</a>
-            <a class="btn btn--ghost" href="#projects">Explorar proyectos</a>
-          </div>
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="documents/LuisSalazarResume.pdf"
+            >Ver CV</a
+          >
+          <a class="btn btn--ghost" href="#projects">Explorar proyectos</a>
+        </div>
 
-          <ul class="quick-meta" aria-label="Tecnologías y principios">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Ruby on Rails</li>
-            <li>Accesibilidad</li>
-            <li>Responsive</li>
-            <li>Código limpio</li>
-          </ul>
+        <ul class="quick-meta" aria-label="Tecnologías y principios">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Ruby on Rails</li>
+          <li>Accesibilidad</li>
+          <li>Responsive</li>
+          <li>Código limpio</li>
+        </ul>
         <script src="network.js"></script>
       </section>
-      </main>
+    </main>
 
     <!-- =======================SECCIÓN ACERCA DE =========================== -->
     <section class="about" id="about">
@@ -91,22 +105,29 @@
         </p>
 
         <div class="about__grid">
-          <div class="about-text">
-            <p>
-              Me especializo en construir sitios web que combinan diseño visual
-              con usabilidad. Me gusta experimentar con animaciones sutiles,
-              efectos de cristal y gradientes para dar vida a cada proyecto.
-            </p>
-            <p>
-              Además, siempre busco aprender nuevas tecnologías y técnicas de
-              UX/UI para que mis desarrollos sean eficientes y atractivos.
-            </p>
+          <div class="about__cuadro">
+            <div class="about-text">
+              <p>
+                Me especializo en construir sitios web que combinan diseño
+                visual con usabilidad. Me gusta experimentar con animaciones
+                sutiles, efectos de cristal y gradientes para dar vida a cada
+                proyecto.
+              </p>
+            </div>
+            <div class="about-text">
+              <p>
+                Además, siempre busco aprender nuevas tecnologías y técnicas de
+                UX/UI para que mis desarrollos sean eficientes y atractivos.
+              </p>
+            </div>
           </div>
-
           <div class="about-image">
             <div class="glass-card">
               <div class="glass-card__shine"></div>
-              <img src="images/foto_luis.png" alt="Acerca de" class="glass-card__img"
+              <img
+                src="images/foto_luis.png"
+                alt="Acerca de"
+                class="glass-card__img"
               />
             </div>
           </div>
@@ -114,99 +135,143 @@
       </div>
     </section>
 
-
     <!-- ======================= SECCIÓN VIBRAS MUSICALES =========================== -->
-    <section class="music">
-      <div class="container music__content">
-        <h2 class="music__title">Vibras Musicales</h2>
-        <p class="music__subtitle">
+    <section class="music-vibes-section">
+      <div class="music__container">
+        <h1 class="musicales-title">Vibras Musicales</h1>
+        <p class="subtitle">
           Descubre sonidos, géneros y ritmos que inspiran creatividad mientras
           trabajas o programas.
         </p>
 
-        <div class="music__grid">
-          <div class="music-card">
-            <div class="music-card__icon">🎸</div>
-            <h3>Rock Clásico</h3>
-            <p>Guitarras y batería que te ponen en modo creativo.</p>
+        <div class="cards-grid">
+          <div
+            class="card"
+            data-audio="music/song1.mp3"
+            data-title="You Belong with me - Taylor Swift"
+          >
+            <div class="icon-wrapper">
+              <i class="fas fa-headphones-alt card-icon"></i>
+            </div>
+            <p class="card-title">En Modo Chill</p>
+            <a
+              href="#"
+              class="play-button"
+              aria-label="Reproducir En Modo Chill"
+            >
+              <i class="fas fa-play"></i>
+            </a>
           </div>
-          <div class="music-card">
-            <div class="music-card__icon">🎧</div>
-            <h3>Electrónica</h3>
-            <p>Beats modernos que dan energía y ritmo a tus proyectos.</p>
+
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fas fa-brain card-icon"></i>
+            </div>
+            <p class="card-title">Para Concentrarme</p>
+            <a
+              href="#"
+              class="play-button"
+              aria-label="Reproducir Para Concentrarme"
+            >
+              <i class="fas fa-play"></i>
+            </a>
           </div>
-          <div class="music-card">
-            <div class="music-card__icon">🎹</div>
-            <h3>Jazz & Chill</h3>
-            <p>Sonidos suaves para concentración y momentos relajados.</p>
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-music card-icon"></i>
+            </div>
+            <p class="card-title">Soundtrack Personal</p>
+            <a
+              href="#"
+              class="play-button"
+              aria-label="Reproducir Soundtrack Personal"
+            >
+              <i class="fas fa-play"></i>
+            </a>
           </div>
-          <div class="music-card">
-            <div class="music-card__icon">🥁</div>
-            <h3>Percusión</h3>
-            <p>Ritmos que hacen vibrar y despertar la imaginación.</p>
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fas fa-step-forward card-icon"></i>
+            </div>
+            <p class="card-title">Para Ponerle Play</p>
+            <a
+              href="#"
+              class="play-button"
+              aria-label="Reproducir Para Ponerle Play"
+            >
+              <i class="fas fa-play"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN SKILLS =========================== -->
-<section class="skills" id="skills">
-  <div class="container skills__content">
-    <h2 class="skills__title">Habilidades</h2>
-    <p class="skills__subtitle">Tecnologías y herramientas que domino, con las que construyo experiencias digitales únicas.</p>
-
-    <div class="skills__grid">
-      <div class="skill-card">
-        <h3>HTML</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:95%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>CSS</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:90%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>JavaScript</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:65%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>Ruby</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:60%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>UI/UX Design</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:80%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>SQL</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:70%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>Wordpress</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:70%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>Python</h3>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:50%"></div>
-        </div>
-      </div>
+    <div id="mini-player" class="mini-player-hidden">
+      <p class="player-title" id="player-title">Selecciona una Vibra</p>
+      <audio id="audio-source" controls></audio>
     </div>
-  </div>
-</section>
+
+    <!-- ======================= SECCIÓN SKILLS =========================== -->
+    <section class="skills" id="skills">
+      <div class="container skills__content">
+        <h2 class="skills__title">Habilidades</h2>
+        <p class="skills__subtitle">
+          Tecnologías y herramientas que domino, con las que construyo
+          experiencias digitales únicas.
+        </p>
+
+        <div class="skills__grid">
+          <div class="skill-card">
+            <h3>HTML</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>CSS</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>JavaScript</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 65%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Ruby</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>UI/UX Design</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>SQL</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Wordpress</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Python</h3>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: 50%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- =======================SECCIÓN DE PROYECTOS=========================== -->
     <section class="projects" id="project">
@@ -272,7 +337,8 @@
             <div class="process-step">2</div>
             <h3>Planificación</h3>
             <p>
-              Defino estructura, recursos y cronograma para organizar el proyecto.
+              Defino estructura, recursos y cronograma para organizar el
+              proyecto.
             </p>
           </div>
 
@@ -289,7 +355,8 @@
             <div class="process-step">4</div>
             <h3>Desarrollo</h3>
             <p>
-              Implemento el proyecto con código limpio, asegurando funcionalidad y estética coherente.
+              Implemento el proyecto con código limpio, asegurando funcionalidad
+              y estética coherente.
             </p>
           </div>
 
@@ -297,7 +364,8 @@
             <div class="process-step">5</div>
             <h3>Pruebas</h3>
             <p>
-              Realizo test de funcionamiento, compatibilidad y ajustes necesarios.
+              Realizo test de funcionamiento, compatibilidad y ajustes
+              necesarios.
             </p>
           </div>
 
@@ -323,65 +391,112 @@
 
         <div class="contact__grid">
           <!-- Formulario -->
-          <form class="contact-form" action="https://formsubmit.co/luisgerdx521@gmail.com" method="POST">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/luisgerdx521@gmail.com"
+            method="POST"
+          >
             <p class="contact-name">¡Enviame un mensaje por aqui!</p>
             <input type="text" name="name" placeholder="Nombre" required />
-            <input type="text" name="number" placeholder="Numero de telefono" required />
-            <input type="email" name="email" placeholder="Correo electrónico" required/>
-            <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
-            <button type="submit" class="btn btn--primary">Enviar mensaje</button>
+            <input
+              type="text"
+              name="number"
+              placeholder="Numero de telefono"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Tu mensaje"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit" class="btn btn--primary">
+              Enviar mensaje
+            </button>
           </form>
 
           <!-- Llamadas a la acción / Redes -->
           <div class="contact-links">
             <h3>Conéctate conmigo</h3>
             <p>Encuéntrame en mis redes y plataformas.</p>
+
             <div class="social-icons">
-              <a href="#" class="social-icon" aria-label="GitHub">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 .5C5.375.5 0 5.875 0 12.5c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.262.793-.583 0-.288-.012-1.25-.012-2.275-3.338.738-4.043-1.612-4.043-1.612-.546-1.387-1.338-1.756-1.338-1.756-1.093-.75.081-.738.081-.738 1.207.087 1.843 1.238 1.843 1.238 1.075 1.843 2.825 1.3 3.512.988.106-.762.419-1.3.762-1.6-2.663-.3-5.462-1.337-5.462-5.95 0-1.312.469-2.387 1.237-3.237-.125-.3-.538-1.512.113-3.162 0 0 1.012-.325 3.312 1.237a11.494 11.494 0 013.012-.413c1.025.006 2.056.137 3.012.413 2.3-1.562 3.312-1.237 3.312-1.237.65 1.65.237 2.862.113 3.162.775.85 1.237 1.925 1.237 3.237 0 4.625-2.8 5.637-5.462 5.938.425.363.812 1.075.812 2.175 0 1.575-.012 2.85-.012 3.237 0 .325.187.7.8.588C20.563 22.3 24 17.8 24 12.5 24 5.875 18.625.5 12 .5z"
-                  />
-                </svg>
+              <a href="#" class="social-icon" aria-label="Ubicación 1">
+                <i class="fa-solid fa-phone"></i>
               </a>
-              <a href="#" class="social-icon" aria-label="LinkedIn">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M4.98 3.5C3.33 3.5 2 4.83 2 6.48c0 1.64 1.33 2.97 2.98 2.97 1.65 0 2.98-1.33 2.98-2.97C7.96 4.83 6.63 3.5 4.98 3.5zM2.4 21.5h5.15V9H2.4v12.5zM9.66 9h4.92v1.7h.07c.69-1.3 2.38-2.68 4.88-2.68 5.22 0 6.18 3.43 6.18 7.88V21.5h-5.15v-6.63c0-1.58-.03-3.62-2.2-3.62-2.2 0-2.54 1.72-2.54 3.5v6.75H9.66V9z"
-                  />
-                </svg>
+
+              <a href="#" class="social-icon" aria-label="Ubicación 2">
+                <i class="fa-solid fa-envelope"></i>
               </a>
-              <a href="#" class="social-icon" aria-label="Twitter">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M23 3a10.9 10.9 0 01-3.14.86 4.48 4.48 0 002-2.48 9.15 9.15 0 01-2.88 1.1A4.52 4.52 0 0016.88 2c-2.5 0-4.51 2.04-4.51 4.55 0 .36.04.72.12 1.06-3.75-.19-7.08-1.97-9.3-4.67-.39.68-.61 1.47-.61 2.31 0 1.59.81 2.99 2.05 3.82a4.52 4.52 0 01-2.05-.56v.06c0 2.23 1.58 4.09 3.67 4.51-.38.1-.77.15-1.18.15-.29 0-.57-.03-.84-.08.57 1.78 2.22 3.08 4.18 3.12A9.05 9.05 0 012 19.54 12.8 12.8 0 008.29 21c7.55 0 11.68-6.28 11.68-11.73 0-.18-.01-.35-.02-.53A8.18 8.18 0 0023 3z"
-                  />
-                </svg>
+
+              <a href="#" class="social-icon" aria-label="Ubicación 3">
+                <i class="fa-solid fa-location-dot"></i>
+              </a>
+            </div>
+
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="Ubicación 1">
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a href="#" class="social-icon" aria-label="Ubicación 2">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+
+              <a href="#" class="social-icon" aria-label="Ubicación 3">
+                <i class="fa-solid fa-comment"></i>
               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-  
-    <footer class="site-footer" aria-label="Pie de página">
-      <div class="container">
-        <small>© 2025 · Construido con HTML, CSS y mucho café.</small>
+
+    <!-- ======================= FOOTER =========================== -->
+
+    <footer class="site-footer" aria-label="Pie de página del sitio">
+      <div class="footer-grid">
+        <div class="footer-section footer-links">
+          <h3 class="footer-title">Explora</h3>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section footer-info">
+          <h3 class="footer-title">Contacto</h3>
+          <p><strong>Desarrollador Web / Diseñador UX/UI</strong></p>
+          <p>Ciudad de México, México</p>
+          <p><a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section footer-legal">
+          <h3 class="footer-title">Legal</h3>
+          <ul>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>© 2025 · Desarrollado con Liquid Crystal & Código Limpio.</small>
       </div>
     </footer>
   </body>

@@ -71,14 +71,10 @@ body {
   position: fixed; /* <--- fija el archivo */
   top: 0;
   left: 0;
-  width: 100%;     /* <--- asegura que cubra toda la pantalla */
-  z-index: 1000;   /* <--- asegúrate que quede encima de todo */
+  width: 100%; /* <--- asegura que cubra toda la pantalla */
+  z-index: 1000; /* <--- asegúrate que quede encima de todo */
   backdrop-filter: blur(14px) saturate(130%);
-  background: linear-gradient(
-    180deg,
-    rgba(10, 13, 22, 0.68),
-    rgba(10, 13, 22, 0.35)
-  );
+  background: linear-gradient(180deg, rgba(10, 13, 22, 0), rgba(10, 13, 22, 0));
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -110,7 +106,7 @@ body {
   color: var(--txt);
   font-weight: 700;
   letter-spacing: 0.3px;
-  padding-left: 10%;
+  padding-left: 5%;
 }
 .brand__dot {
   inline-size: 14px;
@@ -129,8 +125,8 @@ body {
   font-size: 1.06rem;
 }
 
-.site-nav{
-   padding-right: 10%;
+.site-nav {
+  padding-right: 5%;
 }
 
 /* nav */
@@ -252,8 +248,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;   /* hace que no se desborde la pagina */
+  overflow: hidden; /* hace que no se desborde la pagina */
   isolation: isolate;
+  z-index: 2;
   background: radial-gradient(
       1200px 600px at 10% 10%,
       rgba(0, 230, 255, 0.08),
@@ -347,7 +344,7 @@ body {
 }
 
 /* copy */
-.hero-copy{
+.hero-copy {
   margin-top: 10%;
   min-width: 95%;
   margin-inline: auto;
@@ -395,7 +392,6 @@ body {
 .hero-role {
   font-size: clamp(1.05rem, 2.4vw, 2rem);
   color: #e9f3ff;
-  opacity: 0.9;
   margin: 0.4rem 0 0.6rem;
   text-shadow: 0 2px 18px rgba(0, 230, 255, 0.15);
 }
@@ -436,7 +432,7 @@ body {
   box-shadow: 0 0 0 4px rgba(0, 230, 255, 0.25);
 }
 
-.btn--primary{
+.btn--primary {
   background: linear-gradient(135deg, var(--brand-a), var(--brand-b));
   color: #07131e;
   backdrop-filter: blur(0px);
@@ -462,6 +458,7 @@ body {
   padding: 0;
   margin: 1.2rem 0 0;
 }
+
 .quick-meta li {
   font-size: 0.85rem;
   color: var(--muted);
@@ -473,6 +470,14 @@ body {
     rgba(255, 255, 255, 0.04),
     rgba(255, 255, 255, 0.02)
   );
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.hero-role,
+.hero-sub {
+  position: relative; /* ¡Añade esta línea! */
+  z-index: 2; /* Para asegurar que estén por encima de la lona */
 }
 
 #network {
@@ -482,10 +487,11 @@ body {
   height: 100%;
   display: block;
   border-radius: inherit;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
-  /* Alineación y espaciado para móviles */
+  /* ======================= SECCIÓN HERO (MÓVIL) =========================== */
   .hero {
     flex-direction: column; /* Apila el contenido verticalmente */
     justify-content: flex-start; /* Alinea el contenido al principio (arriba) */
@@ -509,7 +515,7 @@ body {
     font-size: 20px;
   }
 
-  .hero-sub{
+  .hero-sub {
     font-size: 13px;
   }
 
@@ -526,8 +532,8 @@ body {
 
 /* ======================= SECCIÓN ACERCA DE =========================== */
 .about {
-  height: 100vh;
-  padding: 120px 10% 80px;
+  min-height: 100vh;
+  padding: 50px 10% 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -542,7 +548,7 @@ body {
   text-align: center;
 }
 
-.about-text{
+.about-text {
   font-size: 0.85rem;
   color: var(--muted);
   border: 1px dashed rgba(255, 255, 255, 0.18);
@@ -553,8 +559,8 @@ body {
     rgba(255, 255, 255, 0.04),
     rgba(255, 255, 255, 0.02)
   );
+  margin: 30px 0;
 }
-
 
 .about__subtitle {
   font-size: 1.2rem;
@@ -587,7 +593,6 @@ body {
   text-align: left;
   font-weight: normal;
   padding: 5px;
-
 }
 
 /* Imagen tipo cristal */
@@ -652,27 +657,128 @@ body {
   }
 }
 
-/* =======================
-   SECCIÓN VIBRAS MUSICALES
-=========================== */
-.music {
+@media (max-width: 768px) {
+  /* ======================= SECCIÓN ACERCA DE (MÓVIL) =========================== */
+
+  .about {
+    /* Ajustamos el padding para reducir el espacio vertical y horizontalmente */
+    padding: 80px 5% 50px;
+    /* Permitimos que el contenido se apile verticalmente si fuera necesario, 
+       aunque 'about__content' ya lo gestiona. */
+    align-items: flex-start;
+  }
+
+  .about__content {
+    /* Aseguramos que el texto esté centrado para el título y subtítulo */
+    text-align: center;
+  }
+
+  /* Ajustamos el subtítulo */
+  .about__subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  /* REJILLA: Apilamos los elementos y reducimos el espacio entre ellos */
+  .about__grid {
+    grid-template-columns: 1fr; /* Forzamos una sola columna */
+    gap: 40px; /* Reducimos el espacio entre el texto y la imagen */
+  }
+
+  /* IMAGEN: Estilo Creativo para la tarjeta de cristal */
+
+  .about-image {
+    /* Centramos el div contenedor de la tarjeta */
+    display: flex;
+    justify-content: center;
+    order: -1; /* OPCIONAL: Mueve la imagen *por encima* del texto en móvil para mejor flujo */
+  }
+
+  .about-image .glass-card {
+    /* Limitamos el tamaño a un ancho razonable para móvil, ej. 80% del viewport */
+    width: 80%;
+    /* Ajustamos la relación de aspecto para que sea menos vertical */
+    aspect-ratio: 1 / 1; /* Hacemos la tarjeta cuadrada */
+    margin: 0;
+  }
+
+  /* TEXTO: Ajustamos la tarjeta de texto */
+  .about-text {
+    /* Se asegura que el contenido de texto (p) quede justificado a la izquierda */
+    padding: 20px 15px;
+  }
+
+  .about-text p {
+    font-size: 1rem; /* Reducimos el tamaño de fuente para mejor legibilidad */
+    text-align: left; /* Mantenemos el texto alineado a la izquierda para párrafos */
+  }
+}
+
+/* ======================= SECCIÓN VIBRAS MUSICALES =========================== */
+
+:root {
+  /* Paleta de colores ajustada para un efecto cristalino sutil */
+  --color-bg-dark: #0a0a1a;
+  --color-primary-blue: #44aaff; /* Azul para algunos elementos */
+  --color-primary-purple: #9b59b6; /* Púrpura para algunos elementos */
+  --color-text-light: #e0e0f0; /* Texto principal */
+  --color-card-bg: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Fondo muy transparente para el "cristal" */
+  --color-border-light: rgba(255, 255, 255, 0.15); /* Borde sutil claro */
+  --color-highlight-blue-sutil: rgba(68, 170, 255, 0.4); /* Brillo azul sutil */
+  --color-highlight-purple-sutil: rgba(
+    155,
+    89,
+    182,
+    0.4
+  ); /* Brillo púrpura sutil */
+  --card-border-radius: 20px;
+}
+
+/* 1. Estilos Globales de la Sección */
+.music-vibes-section {
+  padding: 30px 20px;
+  color: var(--color-text-light);
+  text-align: center;
   min-height: 100vh;
-  padding: 120px 10% 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   overflow: hidden;
 }
 
-.music__content {
+/* Efecto de Partículas (Más discreto) */
+.music-vibes-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1200px;
-  text-align: center;
-  z-index: 2;
+  height: 100%;
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    /* Partículas más tenues */
+      radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  opacity: 0.7; /* Ligeramente más visibles, pero aún sutiles */
 }
 
-.music__title {
+.music__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* 2. Estilos de Títulos */
+.musicales-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 10px;
@@ -681,75 +787,205 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.music__subtitle {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 60px;
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  color: var(--color-text-light);
+  opacity: 0.7; /* Más suave */
 }
 
-/* GRID */
-.music__grid {
+/* 3. Estilos de la Cuadrícula de Tarjetas */
+.cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  /* Líneas de conexión transparentes para el efecto cristalino entre tarjetas */
+  position: relative;
 }
 
-/* CARD */
-.music-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border-radius: 22px;
-  padding: 25px 20px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.music-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-}
-
-.music-card__icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  background: radial-gradient(
-    80% 80% at 50% 50%,
-    rgba(0, 230, 255, 0.35),
-    rgba(255, 0, 204, 0.35)
+/* Líneas de conexión (simuladas con pseudo-elementos o bordes) */
+.cards-grid::before,
+.cards-grid::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
   );
+  opacity: 0.6;
+  z-index: -1; /* Detrás de las tarjetas */
+}
+.cards-grid::before {
+  /* Línea horizontal */
+  height: 2px;
+  width: calc(100% - 100px); /* Ajustar según el gap */
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+}
+.cards-grid::after {
+  /* Línea vertical */
+  width: 2px;
+  height: calc(100% - 100px); /* Ajustar según el gap */
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .cards-grid::before,
+  .cards-grid::after {
+    display: none; /* Ocultar líneas en móvil si no encajan bien */
+  }
+}
+
+/* 4. Estilos de la Tarjeta Individual (El elemento "Crystal") */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  /* Borde sutil y sombra para el efecto "Liquid Crystal" */
+  border: 1px solid var(--color-border-light); /* Borde sutil y claro */
+}
+
+/* Efecto Hover más sutil para interactividad */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* 5. Estilos de los Iconos */
+.icon-wrapper {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: grid;
-  place-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  /* Fondo con degradado y brillo muy sutil */
+  background: linear-gradient(
+    45deg,
+    rgba(68, 170, 255, 0.2),
+    rgba(155, 89, 182, 0.2)
+  );
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Borde más fino y sutil */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.music-card__icon:hover {
-  transform: scale(1.15) rotate(-10deg);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+.card-icon {
+  font-size: 36px;
+  color: var(--color-text-light); /* Icono claro */
+  /* Sombra de texto muy sutil, no un brillo neón intenso */
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--color-primary-blue),
+    var(--color-primary-purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.music-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #fff;
+/* 6. Estilos del Título y Botón de Play */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Sombra de texto sutil */
 }
 
-.music-card p {
+.play-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Fondo con degradado y brillo muy sutil */
+  background: linear-gradient(
+    45deg,
+    var(--color-primary-blue),
+    var(--color-primary-purple)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  color: var(--color-bg-dark); /* Color del icono de play oscuro */
+  text-decoration: none;
+}
+
+.play-button:hover {
+  /* El hover puede intensificar un poco el brillo, pero sigue siendo controlado */
+  background: linear-gradient(
+    45deg,
+    var(--color-glow-blue),
+    var(--color-glow-purple)
+  ); /* Un poco más vibrante en hover */
+  border-color: #000000;
+}
+
+.play-button .fas {
+  font-size: 16px;
+  color: var(--color-text-light); /* Icono blanco para contraste */
+}
+
+/* ESTILOS DEL REPRODUCTOR FIJO */
+#mini-player {
+  /* Estilos base del reproductor (Cristalino y fijo en la esquina) */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 15px 20px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 350px;
+}
+
+.player-title {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* OCULTAR / MOSTRAR REPRODUCTOR */
+.mini-player-hidden {
+  /* Clases para ocultar el reproductor con una transición */
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-/* =======================
-   SECCIÓN SKILLS
-=========================== */
+#mini-player:not(.mini-player-hidden) {
+  /* Clases para mostrar el reproductor */
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Estilos para el elemento <audio> nativo */
+#audio-source {
+  width: 100%;
+}
+
+/* ======================= SECCIÓN SKILLS =========================== */
 .skills {
   min-height: 100vh;
   padding: 120px 10% 80px;
@@ -778,7 +1014,7 @@ body {
 
 .skills__subtitle {
   font-size: 1.2rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 60px;
 }
 
@@ -796,13 +1032,13 @@ body {
   backdrop-filter: blur(12px);
   border-radius: 22px;
   padding: 25px 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 .skill-card h3 {
@@ -816,7 +1052,7 @@ body {
   width: 100%;
   height: 12px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
@@ -831,10 +1067,7 @@ body {
   transform: scaleY(1.15);
 }
 
-
-/* =======================
-   SECCIÓN DE PROYECTOS
-=========================== */
+/* ======================= SECCIÓN DE PROYECTOS =========================== */
 .projects {
   min-height: 100vh;
   padding: 120px 10% 60px;
@@ -935,12 +1168,10 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* =======================
-   SECCIÓN DE PROCESO
-=========================== */
+/* ======================= SECCIÓN DE PROCESO =========================== */
 .process {
   min-height: 100vh;
-  padding: 120px 10% 60px;
+  padding: 10px 10% 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -968,14 +1199,14 @@ body {
 .process__subtitle {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 /* GRID */
 .process__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  gap: 20px;
 }
 
 /* CARD */
@@ -983,7 +1214,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 20px 25px;
+  padding: 10px 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -997,7 +1228,7 @@ body {
   width: 60px;
   height: 60px;
   line-height: 60px;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
   border-radius: 50%;
   background: linear-gradient(135deg, #00e6ff, #ff00cc);
   font-weight: 700;
@@ -1008,7 +1239,7 @@ body {
 
 .process-card h3 {
   font-size: 1.4rem;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: #fff;
 }
 
@@ -1029,9 +1260,7 @@ body {
   }
 }
 
-/* =======================
-   SECCIÓN DE CONTACTO
-=========================== */
+/* ======================= SECCIÓN DE CONTACTO =========================== */
 .contact {
   min-height: 100vh;
   padding: 120px 10% 80px;
@@ -1087,7 +1316,7 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-.contact-name{
+.contact-name {
   font-size: 22px;
 }
 
@@ -1110,7 +1339,7 @@ body {
 }
 
 .contact-form button {
-  align-self: center;  
+  align-self: center;
   padding: 12px 30px;
   border-radius: 40px;
   font-weight: 600;
@@ -1128,25 +1357,20 @@ body {
 }
 
 /* REDES / BOTONES */
-.contact-links h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.contact-links p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.75);
-}
+/*
+ * Estilos para los iconos sociales (SOLUCIÓN FINAL)
+ * Enfocado en eliminar líneas no deseadas y respetar el brillo sutil de la imagen.
+ */
 
 .social-icons {
   display: flex;
   gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
+/* Estilos de los Contenedores Circulares (social-icon) */
 .social-icon {
   display: inline-flex;
   align-items: center;
@@ -1154,45 +1378,146 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00e6ff, #ff00cc);
-  color: #07131e;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  /* 🌟 SOLUCIÓN 1: Eliminamos la línea de subrayado de los enlaces 🌟 */
+  text-decoration: none;
+
+  /* Fondo Cristalino Sutil (tal cual lo tenías, pero sin box-shadow) */
+  background: linear-gradient(
+    135deg,
+    rgba(68, 170, 255, 0.15),
+    /* Reducimos la opacidad para que sea más sutil */ rgba(155, 89, 182, 0.15)
+  );
+
+  /* Añadimos un borde fino y sutil que simula el contorno */
+  border: 1px solid rgba(155, 89, 182, 0.5);
+
+  transition: transform 0.25s ease;
+  /* ❌ ELIMINAMOS 'box-shadow' de la transición ya que causaba el conflicto */
+
+  /* 🌟 SOLUCIÓN 2: Neutralizamos el box-shadow en el estado normal 🌟 */
+  box-shadow: none;
 }
 
 .social-icon:hover {
-  transform: scale(1.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transform: scale(1.05); /* Escala más sutil */
+  /* El hover puede intensificar el borde o añadir un box-shadow muy muy sutil */
+  box-shadow: 0 0 5px rgba(68, 170, 255, 0.5);
+  border-color: rgba(
+    68,
+    170,
+    255,
+    0.7
+  ); /* Borde de color azul al pasar el ratón */
 }
 
-.social-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
+/* Estilos para el Icono de Font Awesome (i) */
+.social-icon i {
+  font-size: 24px;
+  line-height: 1;
+  color: #e0e0f0;
 
-/* Animación de fondo */
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  /* Sombra de texto para el efecto de luz interior del icono (tal cual tu diseño) */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 /* ====== FOOTER ====== */
+
 .site-footer {
-  padding: 32px 0;
-  border-top: 1px solid var(--stroke);
+  padding: 40px 0 0;
+  /* Estilo Cristalino: Fondo muy oscuro y desenfoque */
   background: rgba(8, 10, 16, 0.6);
   backdrop-filter: blur(8px);
-}
-.site-footer small {
-  color: var(--muted);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil (color-border-light) */
+  color: #e0e0f0; /* color-text-light */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* reduce motion */
+/* Distribución de las 3 Columnas con CSS Grid */
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    text-align: center;
+  }
+}
+
+/* Estilos de Títulos y Enlaces */
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #44aaff; /* color-primary-blue */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section a {
+  color: #a0a0b0; /* color-muted */
+  text-decoration: none;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+/* Efecto Hover Cristalino */
+.footer-section a:hover {
+  color: #e0e0f0; /* color-text-light */
+  text-shadow: 0 0 5px rgba(68, 170, 255, 0.5); /* Sombra sutil azul al pasar */
+}
+
+/* Estilos de Contacto/Información Personal */
+.footer-info p {
+  margin: 5px 0;
+  color: #a0a0b0; /* color-muted */
+}
+.footer-info strong {
+  color: #e0e0f0; /* color-text-light */
+}
+
+/* Enlaces Sociales (Iconos) */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #9b59b6; /* color-primary-purple */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #44aaff; /* color-primary-blue */
+  transform: translateY(-2px);
+}
+
+/* Estilos de la Sección de Derechos de Autor */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil */
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.footer-bottom small {
+  color: #a0a0b0; /* color-muted */
+  font-size: 0.9rem;
+}
+
+/* Reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
