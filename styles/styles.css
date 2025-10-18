@@ -1,0 +1,1181 @@
+:root {
+  --dark-bg: #0d011f;
+  --primary-color: #7DD3FA; /* Tono violeta */
+  --secondary-color: #066D9D; /* Tono rosa/fucsia */
+  --text-light: #ffffff;
+  --text-gray: #a9a9a9;
+  --dark-bg: #0d011f; /* Tono base, casi negro con violeta */
+  --grid-color: rgba(68, 62, 188, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif; /* Se recomienda enlazar una fuente como Poppins */
+  background: var(--dark-bg);
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--dark-bg); /* Paso 1: Color de fondo base */
+  color: var(--text-light);
+
+  /* Efecto de Gradientes Radiales */
+  background-image: radial-gradient(
+      circle at 80% 10%,
+      rgba(125, 211, 250, 0.4) 0%,
+      transparent 45%
+    ),
+      radial-gradient(
+        circle at 20% 95%,
+        rgba(39, 25, 190, 0.302) 0%,
+        transparent 40%
+      );
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* fija el fondo mientras el contenido se desplaza */
+  position: relative;
+}
+
+/* Simulación de Rejilla con un Pseudo-Elemento */
+body::before {
+  content: "";
+  position: fixed; /* Para cubrir toda la vista */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Asegura que esté detrás del contenido */
+  pointer-events: none; /* Ignora clics */
+
+  /* Simulación de patrón de rejilla sutil */
+  background-image: linear-gradient(
+      to right,
+      var(--grid-color) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px; /* Tamaño de la cuadrícula */
+  opacity: 0.3; /* Hace que el grid sea muy sutil */
+}
+
+/* ===================== SECCION DE HEADER  ========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 84%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  width: 100%;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.navbar a {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-gray);
+  text-decoration: none;
+  margin-left: 35px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:first-child {
+  /* 'Home' está destacado en la imagen */
+  color: var(--text-light);
+  text-shadow: 0 0 5px var(--primary-color);
+}
+
+/* ======================= SECCIÓN DE PRINCIPAL =========================== */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 8% 50px;
+  min-height: 100vh;
+  position: relative;
+  gap: 10px;
+}
+
+.hero-content {
+  max-width: 60%;
+  z-index: 10;
+}
+
+.greeting {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+.role {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  background-image: linear-gradient(90deg, #9933ff, #ff5798 35%, #ffb833);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 18px;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* --- Botón y Redes Sociales --- */
+.cta-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-light);
+  border-radius: 100px;
+  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  box-shadow: 0 0 10px rgba(29, 50, 187, 0.5);
+  transition: 0.4s;
+}
+
+.btn-download:hover {
+  box-shadow: 0 0 25px rgba(229, 77, 111, 0.8);
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 50%;
+  color: #7DD3FA;
+  border: 1px solid #7DD3FA;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: #7DD3FA;;
+  color: var(--dark-bg);
+  box-shadow: 0 0 5px #7DD3FA;;
+}
+
+/* ------------------ Contenedor de Imagen ------------------ */
+
+.hero-image-container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* El borde y el glow */
+  background: radial-gradient(
+    circle at center,
+    transparent 70%,
+    rgba(146, 62, 188, 0.5) 90%,
+    rgba(229, 77, 111, 0.5) 100%
+  );
+  box-shadow: 0 0 10px rgba(146, 62, 188, 0.6), 0 0 20px rgba(229, 77, 111, 0.4);
+}
+
+.hero-image {
+  width: 98%;
+  height: 98%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* Asegurar que la imagen no tenga un borde visible */
+  border: 5px solid var(--dark-bg);
+}
+
+/* --- Iconos de Tecnología Flotantes --- */
+.tech-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.icon-react {
+  top: 85%;
+  left: 15%;
+  color: #61dafb;
+  box-shadow: 0 0 1px #61dafb;
+}
+.icon-js {
+  top: 5%;
+  left: 80%;
+  color: #f7df1e;
+  box-shadow: 0 0 1px #f7df1e;
+}
+.icon-node {
+  top: 60%;
+  left: 85%;
+  color: #68a063;
+  box-shadow: 0 0 1px #68a063;
+}
+.icon-html5 {
+  top: 5%;
+  left: 10%;
+  font-size: 24px;
+  color: red;
+  box-shadow: 0 0 1px red;
+}
+
+/* Usamos las variables definidas en el CSS anterior para mantener la consistencia */
+
+/* ======================= SECCIÓN DE ACERCA DE MI =========================== */
+.about {
+  padding: 100px 8%;
+}
+
+.about-container {
+  display: flex;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start; /* Alinea el contenido al inicio */
+}
+
+/* --- Columna de Servicios/Línea de Tiempo (Izquierda) --- */
+.about-services {
+  flex: 0 0 350px; /* Ancho fijo para la columna de servicios */
+  padding-right: 40px;
+  position: relative;
+}
+
+/* La línea vertical de la línea de tiempo */
+.about-services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px; /* Posición X de la línea */
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  opacity: 0.3; /* Hacemos la línea un poco más sutil */
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+/* El punto circular en la línea */
+.dot {
+  position: absolute;
+  left: 17px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  margin-left: 50px; /* Espacio para el punto y la línea */
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  color: var(--primary-color);
+  margin-right: 20px;
+  box-shadow: 0 0 10px rgba(146, 62, 188, 0.3);
+  background-color: rgba(146, 62, 188, 0.05);
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* --- Columna de Contenido y Estadísticas (Derecha) --- */
+.about-content-area {
+  flex: 1; /* Ocupa el espacio restante */
+  padding-top: 20px; /* Alineación vertical con la línea de tiempo */
+}
+
+.about-heading {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  position: relative;
+  /* Línea sutil debajo del título si es necesario */
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+}
+
+/* --- Estadísticas --- */
+.about-stats {
+  display: flex;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.stat-box {
+  text-align: left;
+}
+
+.stat-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--primary-color); /* Usamos el color de acento (fucsia) */
+  margin-bottom: 5px;
+  line-height: 1;
+  
+}
+
+.stat-number .plus,
+.stat-number .percent {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: var(--text-gray);
+  text-transform: capitalize;
+}
+
+/* Nota: Se recomienda añadir media queries para hacerlo responsive */
+
+/* ======================= SECCIÓN DE HABILIDADES =========================== */
+.skills-area {
+  padding: 100px 8%;
+}
+
+.skills-heading {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.03
+  ); /* Fondo muy oscuro y sutilmente transparente */
+  border-radius: 15px;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(146, 62, 188, 0.2); /* Borde sutil del color primario */
+}
+
+/* Efecto hover moderno */
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(62, 135, 188, 0.4); /* Sombra con glow */
+}
+
+.card-icon {
+  font-size: 35px;
+  color: var(--secondary-color); /* Color de acento (fucsia) para los iconos */
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.card-description {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  min-height: 100px; /* Para mantener la altura uniforme si el texto varía */
+}
+
+/* --- Tags de Habilidades --- */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+
+  /* Estilo de tag neón/gradiente */
+  background: linear-gradient(
+    90deg,
+    rgba(146, 62, 188, 0.3),
+    rgba(229, 77, 111, 0.2)
+  );
+  border: 1px solid var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 0 5px rgba(146, 62, 188, 0.5);
+  transition: background-color 0.3s;
+}
+
+/* --- Complemento Opcional: Stack Técnico --- */
+.tech-stack-container {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.tech-stack-container h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.stack-chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.stack-chip {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    /* Estilo más sutil para el stack, como un tag */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cccccc;
+    transition: background 0.3s;
+}
+
+.stack-chip:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ======================= SECCIÓN DE PROYECTOS =========================== */
+.projects-area {
+  padding: 100px 8%;
+}
+
+.projects-heading {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* --- Botones de Filtro --- */
+.project-filters {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--text-gray);
+  border: 1px solid var(--text-gray);
+}
+
+.filter-btn:not(.active-filter):hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.filter-btn1 {
+  padding: 10px 25px;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  box-shadow: 0 0 10px rgba(29, 50, 187, 0.5);
+  transition: 0.4s;
+  color: white;
+}
+
+
+/* --- Grid de Proyectos --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s;
+  /* Efecto de borde sutil y glow */
+  border: 1px solid rgba(146, 62, 188, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(146, 62, 188, 0.4);
+}
+
+.project-image-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-description {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  min-height: 100px; /* Para uniformidad de las tarjetas */
+}
+
+/* --- Links (Repository y Demo) --- */
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto; /* Empuja los enlaces hacia abajo */
+}
+
+.btn-repo,
+.btn-demo {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+/* Estilo para el botón 'Repository' (Borde violeta/oscuro) */
+.btn-repo {
+  background-color: rgba(146, 62, 188, 0.1);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-repo:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 0 15px rgba(146, 62, 188, 0.7);
+}
+
+/* Estilo para el botón 'Demo' (Gradiente) */
+.btn-demo {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-light);
+  border: 1px solid transparent;
+  box-shadow: 0 0 15px rgba(229, 77, 111, 0.5);
+}
+
+.btn-demo:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(229, 77, 111, 0.8);
+}
+
+/* ------------------ Sección Línea de Tiempo (Experiencia/Certificados) ------------------ */
+.timeline-area {
+  padding: 100px 8%;
+  text-align: center;
+}
+
+.timeline-heading {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.timeline-intro-text {
+  font-size: 18px;
+  color: var(--text-gray);
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* La línea central vertical */
+.timeline-container::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+  opacity: 0.5;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 30px; /* Espacio entre elementos */
+}
+
+/* Posicionar elementos a la izquierda y derecha */
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* El punto en la línea de tiempo */
+.timeline-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: var(--primary-color);
+  border: 3px solid var(--dark-bg); /* Un borde del color de fondo para que resalte */
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Posición del punto para elementos izquierdos */
+.timeline-item.left .timeline-dot {
+  right: -9px; /* Mitad del ancho del punto hacia afuera */
+  top: 30px;
+}
+
+/* Posición del punto para elementos derechos */
+.timeline-item.right .timeline-dot {
+  left: -9px; /* Mitad del ancho del punto hacia afuera */
+  top: 30px;
+}
+
+/* --- Contenido de las tarjetas --- */
+.timeline-content {
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid rgba(146, 62, 188, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(146, 62, 188, 0.4);
+}
+
+.timeline-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.timeline-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.timeline-company {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.timeline-description {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timeline-tags span {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(146, 62, 188, 0.2),
+    rgba(229, 77, 111, 0.1)
+  );
+  border: 1px solid var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Flechas indicadoras para los elementos de la línea de tiempo */
+.timeline-item.left .timeline-content::after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 30px;
+  width: 0;
+  z-index: 1;
+  right: -10px;
+  border: medium solid rgba(255, 255, 255, 0.03);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.03);
+}
+
+.timeline-item.right .timeline-content::after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 30px;
+  width: 0;
+  z-index: 1;
+  left: -10px;
+  border: medium solid rgba(255, 255, 255, 0.03);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgba(255, 255, 255, 0.03) transparent transparent;
+}
+
+/* Media Queries para responsividad */
+@media screen and (max-width: 768px) {
+  .timeline-container::after {
+    left: 31px; /* Mueve la línea central a la izquierda para una sola columna */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    left: 0; /* Todos los elementos a la izquierda */
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 24px;
+    right: auto;
+  }
+
+  .timeline-item.left .timeline-content::after,
+  .timeline-item.right .timeline-content::after {
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.03);
+    left: 60px;
+    right: auto;
+  }
+}
+
+/* ========================= SECCION DE CONTACTO ====================== */
+.contact-area {
+  padding: 100px 8%;
+  text-align: center; /* Centra el título y descripción */
+}
+
+.contact-heading {
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-description-text {
+  font-size: 18px;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Para que las columnas se apilen en pantallas pequeñas */
+}
+
+/* --- Wrapper del Formulario --- */
+.contact-form-wrapper {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 350px; /* Ancho mínimo para el formulario */
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 40px;
+  border: 1px solid rgba(146, 62, 188, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid rgba(146, 62, 188, 0.4);
+  background-color: rgba(146, 62, 188, 0.08); /* Fondo con un toque violeta */
+  color: var(--text-light);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-gray);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 10px rgba(229, 77, 111, 0.5);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+
+.btn-send-message {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-light);
+  border-radius: 100px;
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  transition: 0.4s;
+}
+
+.btn-send-message:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(229, 77, 111, 0.8);
+}
+
+/* --- Wrapper de Redes Sociales --- */
+.contact-social-wrapper {
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 300px; /* Ancho mínimo */
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 40px;
+  border: 1px solid rgba(146, 62, 188, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center; /* Centra el contenido */
+  display: flex; /* Para centrar verticalmente si el formulario es más alto */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.social-text {
+  font-size: 16px;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas para los iconos */
+  gap: 20px;
+  max-width: 300px; /* Limita el ancho de la cuadrícula de iconos */
+  margin: 0 auto; /* Centra la cuadrícula */
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  text-decoration: none;
+  background: linear-gradient(
+    135deg,
+    rgba(68, 170, 255, 0.15),
+    rgba(155, 89, 182, 0.15)
+  );
+  border: 1px solid rgba(155, 89, 182, 0.5);
+  transition: transform 0.25s ease;
+  box-shadow: none;
+}
+
+.social-icon-btn:hover {
+  transform: scale(1.05); /* Escala más sutil */
+  /* El hover puede intensificar el borde o añadir un box-shadow muy muy sutil */
+  box-shadow: 0 0 5px rgba(68, 170, 255, 0.5);
+  border-color: rgba(
+    68,
+    170,
+    255,
+    0.7
+  ); /* Borde de color azul al pasar el ratón */
+}
+
+.social-icon-btn i {
+  font-size: 24px;
+  line-height: 1;
+  color: #e0e0f0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form-wrapper,
+  .contact-social-wrapper {
+    width: 100%;
+    max-width: 500px; /* Limita el ancho en pantallas más pequeñas */
+    margin-bottom: 30px;
+  }
+}
+
+/* =========================== FOOTER =============================== */
+
+.site-footer {
+  padding: 40px 0 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Distribución de las 3 Columnas con CSS Grid */
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    text-align: center;
+  }
+}
+
+/* Estilos de Títulos y Enlaces */
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section a {
+  color: #a0a0b0; /* color-muted */
+  text-decoration: none;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+/* Efecto Hover Cristalino */
+.footer-section a:hover {
+  color: #e0e0f0; /* color-text-light */
+  text-shadow: 0 0 5px rgba(68, 170, 255, 0.5); /* Sombra sutil azul al pasar */
+}
+
+/* Estilos de Contacto/Información Personal */
+.footer-info p {
+  margin: 5px 0;
+  color: #a0a0b0; /* color-muted */
+}
+.footer-info strong {
+  color: #e0e0f0; /* color-text-light */
+}
+
+/* Enlaces Sociales (Iconos) */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #9b59b6; /* color-primary-purple */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #44aaff; /* color-primary-blue */
+  transform: translateY(-2px);
+}
+
+/* Estilos de la Sección de Derechos de Autor */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil */
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.footer-bottom small {
+  color: #a0a0b0; /* color-muted */
+  font-size: 0.9rem;
+}
+
+/* Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

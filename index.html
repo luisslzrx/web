@@ -1,464 +1,417 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luis Salazar | Desarrollador Frontend</title>
-    <meta
-      name="description"
-      content="Portafolio de Luis Salazar, desarrollador frontend que construye experiencias web modernas."
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Document</title>
   </head>
-
   <body>
-    <!-- Accesibilidad -->
-    <a class="skip-link" href="#inicio">Saltar al contenido</a>
-
-    <!-- ENCABEZADO / ÍNDICE -->
-    <header class="site-header" role="banner">
-      <a href="#inicio" class="brand" aria-label="Ir a inicio">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span class="brand__name">Luis&nbsp;Salazar</span>
-      </a>
-
-      <!-- Toggle móvil sin JS -->
-      <input
-        type="checkbox"
-        id="nav-toggle"
-        class="nav-toggle"
-        aria-label="Abrir menú"
-      />
-      <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </label>
-
-      <nav class="site-nav" role="navigation" aria-label="Principal">
-        <ul>
-          <li><a href="#hero" class="is-active">Inicio</a></li>
-          <li><a href="#skills">Habilidades</a></li>
-          <li><a href="#project">Proyectos</a></li>
-          <li><a href="#process">Proceso</a></li>
-          <li><a href="#contact" class="pill">Contacto</a></li>
-        </ul>
+    <!-- ======================= MENÚ =========================== -->
+    <header class="header">
+      <div class="logo">Luis&lt;/&gt;</div>
+      <nav class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="#about">Acerca</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact">Contacto</a>
       </nav>
-      <!-- brillo superior del header -->
-      <div class="header-sheen" aria-hidden="true"></div>
     </header>
 
-    <!-------------- HERO -------------------------->
-    <main id="hero" class="hero" role="main">
-      <!-- capas de fondo líquido -->
-      <div class="ink ink--a" aria-hidden="true"></div>
-      <div class="ink ink--b" aria-hidden="true"></div>
-      <div class="ink ink--c" aria-hidden="true"></div>
-
-      <!-- ruido suave para textura -->
-      <div class="noise" aria-hidden="true"></div>
-
-      <canvas id="network"></canvas>
-
-      <section class="hero-copy">
-        <p class="eyebrow">Hola, mi nombre es</p>
-        <h1 class="hero-title">
-          Luis&nbsp;Salazar Aguilar
-          <span class="title-glow" aria-hidden="true"></span>
-        </h1>
-        <p class="hero-role">Construyo experiencias web modernas</p>
-        <p class="hero-sub">
-          Diseño y programo cosas <strong>bellamente simples</strong>, con
-          enfoque en accesibilidad, rendimiento y detalle pixel-perfect.
+    <!-- =======================SECCIÓN PRINCIPAL =========================== -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="greeting">Hola, Soy Luis Salazar</h1>
+        <p class="role">Full stack developer</p>
+        <p class="description">
+          Diseño sitios web modernos, adaptables y fáciles de usar, con pasión y
+          precisión.
         </p>
-
-        <div class="hero-cta">
-          <a class="btn btn--primary" href="documents/LuisSalazarResume.pdf"
-            >Ver CV</a
-          >
-          <a class="btn btn--ghost" href="#projects">Explorar proyectos</a>
+        <div class="cta-links">
+          <a href="#" class="btn-download"
+            >Download Resume &nbsp; <i class="fa-solid fa-download"></i
+          ></a>
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
         </div>
+      </div>
+      <div class="hero-image-container">
+        <img
+          src="images/foto_luis.png"
+          alt="Imagen con estilo de luis"
+          class="hero-image"
+        />
+        <div class="tech-icon icon-react">
+          <i class="fa-brands fa-react"></i>
+        </div>
+        <div class="tech-icon icon-js">
+          <i class="fa-brands fa-js-square"></i>
+        </div>
+        <div class="tech-icon icon-node">
+          <i class="fa-brands fa-node-js"></i>
+        </div>
+        <div class="tech-icon icon-html5">
+          <i class="fa-brands fa-html5"></i>
+        </div>
+      </div>
+    </section>
 
-        <ul class="quick-meta" aria-label="Tecnologías y principios">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Ruby on Rails</li>
-          <li>Accesibilidad</li>
-          <li>Responsive</li>
-          <li>Código limpio</li>
-        </ul>
-        <script src="network.js"></script>
-      </section>
-    </main>
-
-    <!-- =======================SECCIÓN ACERCA DE =========================== -->
+    <!-- =======================SECCIÓN ACERCA DE MI =========================== -->
     <section class="about" id="about">
-      <div class="container about__content">
-        <h2 class="about__title">Acerca de mí</h2>
-        <p class="about__subtitle">
-          Soy desarrollador web apasionado por crear experiencias digitales
-          modernas, limpias y con diseño interactivo.
-        </p>
-
-        <div class="about__grid">
-          <div class="about__cuadro">
-            <div class="about-text">
-              <p>
-                Me especializo en construir sitios web que combinan diseño
-                visual con usabilidad. Me gusta experimentar con animaciones
-                sutiles, efectos de cristal y gradientes para dar vida a cada
-                proyecto.
-              </p>
-            </div>
-            <div class="about-text">
-              <p>
-                Además, siempre busco aprender nuevas tecnologías y técnicas de
-                UX/UI para que mis desarrollos sean eficientes y atractivos.
-              </p>
+      <div class="about-container">
+        <div class="about-services">
+          <div class="service-item">
+            <span class="dot"></span>
+            <div class="icon-text">
+              <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
+              <p class="service-title">Website Development</p>
             </div>
           </div>
-          <div class="about-image">
-            <div class="glass-card">
-              <div class="glass-card__shine"></div>
-              <img
-                src="images/foto_luis.png"
-                alt="Acerca de"
-                class="glass-card__img"
-              />
+
+          <div class="service-item">
+            <span class="dot"></span>
+            <div class="icon-text">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <p class="service-title">App Development</p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="dot"></span>
+            <div class="icon-text">
+              <div class="icon-wrapper"><i class="fa-solid fa-server"></i></div>
+              <p class="service-title">Website Hosting</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content-area">
+          <h2 class="about-heading">Hola, me presento</h2>
+
+          <p class="about-text">
+            Descubrí en el desarrollo web una forma de transformar ideas en
+            experiencias digitales únicas. Me apasiona crear sitios modernos,
+            funcionales y visualmente atractivos que conecten a las personas con
+            lo que buscan. Cada proyecto es una oportunidad para aprender,
+            mejorar y construir algo con propósito.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-box">
+              <p class="stat-number">5 <span class="plus">+</span></p>
+              <p class="stat-label">Proyectos completados</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-number">95 <span class="percent">%</span></p>
+              <p class="stat-label">Satisfacción del cliente</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-number">2 <span class="plus">+</span></p>
+              <p class="stat-label">años en desarrollo web</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN VIBRAS MUSICALES =========================== -->
-    <section class="music-vibes-section">
-      <div class="music__container">
-        <h1 class="musicales-title">Vibras Musicales</h1>
-        <p class="subtitle">
-          Descubre sonidos, géneros y ritmos que inspiran creatividad mientras
-          trabajas o programas.
-        </p>
+    <!-- =======================SECCIÓN HABILIDADES =========================== -->
+    <section class="skills-area" id="skills">
+      <h2 class="skills-heading">Habilidades y Áreas de Especialización</h2>
 
-        <div class="cards-grid">
-          <div
-            class="card"
-            data-audio="music/song1.mp3"
-            data-title="You Belong with me - Taylor Swift"
-          >
-            <div class="icon-wrapper">
-              <i class="fas fa-headphones-alt card-icon"></i>
-            </div>
-            <p class="card-title">En Modo Chill</p>
-            <a
-              href="#"
-              class="play-button"
-              aria-label="Reproducir En Modo Chill"
-            >
-              <i class="fas fa-play"></i>
-            </a>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
+          <h3 class="card-title">Desarrollo Web y Frontend</h3>
+          <p class="card-description">
+            Construyo sitios modernos y funcionales, dominando tanto código puro
+            como sistemas CMS, enfocados en experiencias limpias, rápidas y
+            optimizadas.
+          </p>
+          <div class="skill-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>WordPress</span>
+            <span>Responsive Design</span>
+            <span>Git</span>
           </div>
+        </div>
 
-          <div class="card">
-            <div class="icon-wrapper">
-              <i class="fas fa-brain card-icon"></i>
-            </div>
-            <p class="card-title">Para Concentrarme</p>
-            <a
-              href="#"
-              class="play-button"
-              aria-label="Reproducir Para Concentrarme"
-            >
-              <i class="fas fa-play"></i>
-            </a>
+        <div class="skill-card">
+          <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="card-title">Backend y Lógica de Programación</h3>
+          <p class="card-description">
+            Desarrollo estructuras y flujos funcionales que dan vida a la parte
+            lógica de los sitios, garantizando eficiencia, bases de datos
+            seguras y código escalable.
+          </p>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>Ruby on Rails</span>
+            <span>SQL</span>
+            <span>C/C++</span>
+            <span>Java</span>
           </div>
-          <div class="card">
-            <div class="icon-wrapper">
-              <i class="fa-solid fa-music card-icon"></i>
-            </div>
-            <p class="card-title">Soundtrack Personal</p>
-            <a
-              href="#"
-              class="play-button"
-              aria-label="Reproducir Soundtrack Personal"
-            >
-              <i class="fas fa-play"></i>
-            </a>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+          <h3 class="card-title">Diseño, Experiencia y Estrategia Digital</h3>
+          <p class="card-description">
+            Diseño interfaces centradas en el usuario con un enfoque estratégico
+            de marketing, optimizando sitios para un rendimiento y
+            posicionamiento efectivo.
+          </p>
+          <div class="skill-tags">
+            <span>UX/UI Design</span>
+            <span>Diseño Responsivo</span>
+            <span>Marketing Digital</span>
+            <span>Optimización Web</span>
           </div>
-          <div class="card">
-            <div class="icon-wrapper">
-              <i class="fas fa-step-forward card-icon"></i>
-            </div>
-            <p class="card-title">Para Ponerle Play</p>
-            <a
-              href="#"
-              class="play-button"
-              aria-label="Reproducir Para Ponerle Play"
-            >
-              <i class="fas fa-play"></i>
-            </a>
+        </div>
+      </div>
+
+      <div class="tech-stack-container">
+          <h3>Stack Técnico Principal</h3>
+          <div class="stack-chips">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript (ES6+)</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Ruby</span>
+            <span class="stack-chip">WordPress</span>
+            <span class="stack-chip">SQL</span>
+            <span class="stack-chip">Git</span>
+            <span class="stack-chip">Figma</span>
+          </div>
+        </div>
+    </section>
+
+    <!-- =======================SECCIÓN DE PROYECTOS =========================== -->
+
+    <section class="projects-area" id="projects">
+      <h2 class="projects-heading">Mis proyectos</h2>
+
+      <div class="project-filters">
+        <button class="filter-btn1">Web Application</button>
+        <button class="filter-btn">Mobile application</button>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card web-app">
+          <div class="project-image-wrapper">
+            <img
+              src="images/mountain-life-pagina-web.png"
+              alt="E-commerce Checkout UI"
+              class="project-image"
+            />
+          </div>
+          <p class="project-description">
+            A clean, focused checkout UI for an e-commerce platform. Designed to
+            reduce friction and maximize conversions through clear layout,
+            validation, and trust-building elements.
+          </p>
+          <div class="project-links">
+            <a href="#" class="btn-repo">Repository</a>
+            <a href="https://mountainlife.com.mx/" class="btn-demo">Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card web-app">
+          <div class="project-image-wrapper">
+            <img
+              src="images/nexfra-pagina-web.png"
+              alt="Clinic Management Dashboard"
+              class="project-image"
+            />
+          </div>
+          <p class="project-description">
+            Clinic management dashboard built for clarity and efficiency.
+            Prioritizes quick access to patient data, appointment stats, and
+            admin tools via clear layout and visual hierarchy.
+          </p>
+          <div class="project-links">
+            <a href="#" class="btn-repo">Repository</a>
+            <a href="#" class="btn-demo">Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card web-app">
+          <div class="project-image-wrapper">
+            <img
+              src="images/CEA-escuela-pagina-web.png"
+              alt="Corporate Website"
+              class="project-image"
+            />
+          </div>
+          <p class="project-description">
+            Corporate website for an Algerian agri-food distributor, focused on
+            trust-building through clear structure, strong visuals, and
+            intuitive navigation.
+          </p>
+          <div class="project-links">
+            <a href="#" class="btn-repo">Repository</a>
+            <a href="#" class="btn-demo">Demo</a>
           </div>
         </div>
       </div>
     </section>
 
-    <div id="mini-player" class="mini-player-hidden">
-      <p class="player-title" id="player-title">Selecciona una Vibra</p>
-      <audio id="audio-source" controls></audio>
-    </div>
+    
+    <!-- =======================SECCIÓN DE TIMELINE =========================== -->
 
-    <!-- ======================= SECCIÓN SKILLS =========================== -->
-    <section class="skills" id="skills">
-      <div class="container skills__content">
-        <h2 class="skills__title">Habilidades</h2>
-        <p class="skills__subtitle">
-          Tecnologías y herramientas que domino, con las que construyo
-          experiencias digitales únicas.
-        </p>
+    <section class="timeline-area" id="experience-certs">
+      <h2 class="timeline-heading">Mi Trayectoria</h2>
+      <p class="timeline-intro-text">
+        Un recorrido por mi experiencia profesional y los logros que me han
+        impulsado.
+      </p>
 
-        <div class="skills__grid">
-          <div class="skill-card">
-            <h3>HTML</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 95%"></div>
+      <div class="timeline-container">
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-neon">
+            <span class="timeline-date">Enero 2023 - Presente</span>
+            <h3 class="timeline-title">Desarrollador Full Stack Senior</h3>
+            <p class="timeline-company">TechSolutions Inc.</p>
+            <p class="timeline-description">
+              Liderazgo en el desarrollo de aplicaciones web escalables con
+              React, Node.js y bases de datos NoSQL. Implementación de CI/CD y
+              metodologías ágiles.
+            </p>
+            <div class="timeline-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span
+              ><span>AWS</span>
             </div>
           </div>
-          <div class="skill-card">
-            <h3>CSS</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 90%"></div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-neon">
+            <span class="timeline-date">Julio 2022</span>
+            <h3 class="timeline-title">
+              Certificación AWS Certified Developer
+            </h3>
+            <p class="timeline-company">Amazon Web Services</p>
+            <p class="timeline-description">
+              Validación de habilidades para desarrollar y mantener aplicaciones
+              en la nube de AWS, enfocándose en la eficiencia y la seguridad.
+            </p>
+            <div class="timeline-tags">
+              <span>Cloud</span><span>Serverless</span><span>DevOps</span>
             </div>
           </div>
-          <div class="skill-card">
-            <h3>JavaScript</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 65%"></div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-neon">
+            <span class="timeline-date">Febrero 2020 - Diciembre 2022</span>
+            <h3 class="timeline-title">Desarrollador Frontend</h3>
+            <p class="timeline-company">Creative Digital Agency</p>
+            <p class="timeline-description">
+              Diseño e implementación de interfaces de usuario atractivas y
+              responsivas utilizando HTML, CSS, JavaScript y Vue.js para
+              diversos clientes.
+            </p>
+            <div class="timeline-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>Vue.js</span>
             </div>
           </div>
-          <div class="skill-card">
-            <h3>Ruby</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 60%"></div>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>UI/UX Design</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 80%"></div>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>SQL</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 70%"></div>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Wordpress</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 70%"></div>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Python</h3>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 50%"></div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-neon">
+            <span class="timeline-date">Marzo 2019</span>
+            <h3 class="timeline-title">Especialización en UI/UX Design</h3>
+            <p class="timeline-company">Coursera / Google UX Design</p>
+            <p class="timeline-description">
+              Aprendizaje profundo en principios de diseño centrado en el
+              usuario, prototipado, investigación de usuarios y herramientas de
+              diseño (Figma, Adobe XD).
+            </p>
+            <div class="timeline-tags">
+              <span>UX Research</span><span>UI Design</span
+              ><span>Prototyping</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =======================SECCIÓN DE PROYECTOS=========================== -->
-    <section class="projects" id="project">
-      <div class="projects__content">
-        <h2 class="projects__title">Mis Proyectos</h2>
-        <p class="projects__subtitle">
-          Algunos trabajos donde fusiono diseño, código y creatividad.
-        </p>
 
-        <div class="projects__grid">
-          <!-- Proyecto 1 -->
-          <div class="project-card">
-            <div class="project-img"></div>
-            <div class="project-info">
-              <h3>Página Web Personal</h3>
-              <p>Diseño minimalista y moderno con HTML, CSS y JavaScript.</p>
-              <a href="#" class="btn">Ver Código</a>
-            </div>
-          </div>
+    <!-- =======================SECCIÓN DE CONTACTO =========================== -->
 
-          <!-- Proyecto 2 -->
-          <div class="project-card">
-            <div class="project-img"></div>
-            <div class="project-info">
-              <h3>Calculadora JS</h3>
-              <p>Aplicación interactiva hecha 100% en JavaScript Vanilla.</p>
-              <a href="#" class="btn">Ver Código</a>
-            </div>
-          </div>
+    <section class="contact-area" id="contact">
+      <h2 class="contact-heading">Contacto</h2>
+      <p class="contact-description-text">
+        Hablemos de tu proyecto o cualquier idea que quieras desarrollar.
+      </p>
 
-          <!-- Proyecto 3 -->
-          <div class="project-card">
-            <div class="project-img"></div>
-            <div class="project-info">
-              <h3>App con Ruby on Rails</h3>
-              <p>Backend escalable con Rails y un frontend limpio.</p>
-              <a href="#" class="btn">Ver Código</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= SECCIÓN DE PROCESO =========================== -->
-    <section class="process" id="process">
-      <div class="container process__content">
-        <h2 class="process__title">Mi Proceso</h2>
-        <p class="process__subtitle">
-          Cómo abordo cada proyecto desde la idea hasta la entrega final.
-        </p>
-
-        <div class="process__grid">
-          <div class="process-card">
-            <div class="process-step">1</div>
-            <h3>Investigación</h3>
-            <p>
-              Analizo requerimientos, tendencias y referencias para entender el
-              contexto y objetivos.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step">2</div>
-            <h3>Planificación</h3>
-            <p>
-              Defino estructura, recursos y cronograma para organizar el
-              proyecto.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step">3</div>
-            <h3>Diseño</h3>
-            <p>
-              Creo wireframes, prototipos y estilos visuales que reflejen la
-              identidad del proyecto.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step">4</div>
-            <h3>Desarrollo</h3>
-            <p>
-              Implemento el proyecto con código limpio, asegurando funcionalidad
-              y estética coherente.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step">5</div>
-            <h3>Pruebas</h3>
-            <p>
-              Realizo test de funcionamiento, compatibilidad y ajustes
-              necesarios.
-            </p>
-          </div>
-
-          <div class="process-card">
-            <div class="process-step">6</div>
-            <h3>Entrega</h3>
-            <p>
-              Realizo pruebas finales y presento el proyecto, listo para su
-              lanzamiento o uso final.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= SECCIÓN DE CONTACTO =========================== -->
-    <section class="contact" id="contact">
-      <div class="container contact__content">
-        <h2 class="contact__title">Contacto</h2>
-        <p class="contact__subtitle">
-          Hablemos de tu proyecto o cualquier idea que quieras desarrollar.
-        </p>
-
-        <div class="contact__grid">
-          <!-- Formulario -->
-          <form
-            class="contact-form"
-            action="https://formsubmit.co/luisgerdx521@gmail.com"
-            method="POST"
-          >
-            <p class="contact-name">¡Enviame un mensaje por aqui!</p>
+      <div class="contact-container">
+        <div class="contact-form-wrapper">
+          <h3 class="form-title">¡Envíame un mensaje por aquí!</h3>
+          <form action="#" method="POST" class="contact-form">
             <input type="text" name="name" placeholder="Nombre" required />
-            <input
-              type="text"
-              name="number"
-              placeholder="Numero de telefono"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              required
-            />
+            <input type="tel" name="phone" placeholder="Número de teléfono" />
+            <input type="email" name="email" placeholder="Correo electrónico" required/>
             <textarea
               name="message"
               placeholder="Tu mensaje"
-              rows="5"
+              rows="6"
               required
             ></textarea>
-            <button type="submit" class="btn btn--primary">
+            <button type="submit" class="btn-send-message">
               Enviar mensaje
             </button>
           </form>
+        </div>
 
-          <!-- Llamadas a la acción / Redes -->
-          <div class="contact-links">
-            <h3>Conéctate conmigo</h3>
-            <p>Encuéntrame en mis redes y plataformas.</p>
-
-            <div class="social-icons">
-              <a href="#" class="social-icon" aria-label="Ubicación 1">
-                <i class="fa-solid fa-phone"></i>
-              </a>
-
-              <a href="#" class="social-icon" aria-label="Ubicación 2">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
-
-              <a href="#" class="social-icon" aria-label="Ubicación 3">
-                <i class="fa-solid fa-location-dot"></i>
-              </a>
-            </div>
-
-            <div class="social-icons">
-              <a href="#" class="social-icon" aria-label="Ubicación 1">
-                <i class="fa-brands fa-github"></i>
-              </a>
-
-              <a href="#" class="social-icon" aria-label="Ubicación 2">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-
-              <a href="#" class="social-icon" aria-label="Ubicación 3">
-                <i class="fa-solid fa-comment"></i>
-              </a>
-            </div>
+        <div class="contact-social-wrapper">
+          <h3 class="social-title">Conéctate conmigo</h3>
+          <p class="social-text">Encuéntrame en mis redes y plataformas.</p>
+          <div class="social-links-grid">
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-solid fa-location-dot"></i
+            ></a>
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="social-icon-btn"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================= FOOTER =========================== -->
+    <!-- =======================SECCIÓN DE FOOTER =========================== -->
 
     <footer class="site-footer" aria-label="Pie de página del sitio">
       <div class="footer-grid">
