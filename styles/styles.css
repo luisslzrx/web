@@ -348,13 +348,13 @@ body::before {
 
   /* 2. Contenido de Texto */
   .hero-content {
-    max-width: 100%; /* Permite que el texto ocupe todo el ancho */
+    max-width: 100%;
   }
 
   /* 3. Tipografía (Ajuste del tamaño de la fuente para que no sea demasiado grande) */
   .greeting {
     font-size: 40px;
-    margin-top: 20px; /* Espacio extra debajo del header fijo */
+    margin-top: 20px;
   }
 
   .role {
@@ -367,33 +367,26 @@ body::before {
     margin-bottom: 30px;
   }
 
-  /* 4. Botones y Redes Sociales */
+  /* Botones y Redes Sociales */
   .cta-links {
+    margin-top: 60px;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si la pantalla es muy pequeña */
+    flex-wrap: wrap;
+    gap: 30px;
   }
 
-  .btn-download {
-    /* Puede ser útil que el botón principal ocupe todo el ancho si es necesario */
-    /* width: 100%; */
-    /* max-width: 300px; */ /* Opcional: limitar el ancho para que no se vea feo */
-  }
-
-  /* 5. Contenedor de Imagen (Para reducir su tamaño en móvil) */
   .hero-image-container {
-    width: 200px; /* Reduce el tamaño total del contenedor circular */
+    width: 200px;
     height: 200px;
     margin-top: 40px;
     margin-bottom: 20px;
   }
 
-  /* 6. Iconos Flotantes (Opcional: hacerlos más pequeños o esconderlos) */
   .tech-icon {
     width: 30px;
     height: 30px;
     font-size: 16px;
-    /* Puedes reajustar su posición para que se vean bien en el círculo más pequeño */
   }
 
   /* Opcional: si quieres eliminar los iconos flotantes para un diseño más limpio: */
@@ -535,7 +528,25 @@ body::before {
   text-transform: capitalize;
 }
 
-/* Nota: Se recomienda añadir media queries para hacerlo responsive */
+@media (max-width: 768px) {
+  .about-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .about-heading {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .about-text {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
 
 /* ======================= SECCIÓN DE HABILIDADES =========================== */
 .skills-area {
