@@ -528,24 +528,98 @@ body::before {
   text-transform: capitalize;
 }
 
+/* Media Query para pantallas pequeñas (tabletas y móviles, hasta 768px) */
 @media (max-width: 768px) {
-  .about-container {
-    display: flex;
-    flex-direction: column-reverse;
-    height: auto;
-  }
+    
+    .about {
+        padding: 60px 5%; /* Reducimos el padding vertical y horizontal */
+    }
 
-  .about-heading {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
+    /* 1. Contenedor Principal: Cambiar de fila a columna y centrar el texto */
+    .about-container {
+        flex-direction: column-reverse;
+        gap: 40px; /* Reducimos el espacio entre las dos columnas ahora apiladas */
+        align-items: center; /* Centramos el contenido de la columna de la derecha */
+        text-align: center; /* Centramos el texto dentro del contenedor principal */
+    }
 
-  .about-text {
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
+    /* --- Columna de Servicios/Línea de Tiempo (Izquierda) --- */
+    .about-services {
+        flex: 0 0 auto; /* Eliminamos el ancho fijo */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding-right: 0;
+        margin-left: 0;
+    }
+
+    /* Centramos la línea de tiempo horizontalmente para que se vea mejor */
+    .about-services::before {
+        left: 50%; /* Movemos la línea al centro */
+        margin-left: -1px; /* Ajuste fino */
+    }
+
+    /* Centramos los puntos de la línea de tiempo */
+    .service-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column; /* Apilamos el icono sobre el título */
+        margin-bottom: 40px;
+    }
+
+    .dot {
+        left: 50%; /* Movemos el punto al centro */
+        transform: translateX(-50%);
+        top: -10px; /* Ajustamos la posición vertical si apilamos */
+    }
+    
+    .icon-text {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 20px; /* Espacio entre el punto y el icono */
+    }
+    
+    .icon-wrapper {
+        margin-right: 0;
+        margin-bottom: 10px; /* Espacio entre el icono y el título */
+    }
+
+
+    /* --- Columna de Contenido y Estadísticas (Derecha) --- */
+    .about-content-area {
+        width: 100%;
+        padding-top: 0; /* Ya no es necesario alinearse con la línea de tiempo */
+        text-align: center; /* Centramos el contenido */
+    }
+
+    .about-heading {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* --- Estadísticas: Cambiar a columna o apilar horizontalmente --- */
+    .about-stats {
+        /* Usamos flex-wrap para que se envuelvan si es necesario */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centramos el grupo de estadísticas */
+        gap: 30px; /* Reducimos el gap */
+    }
+    
+    /* Alternativa para dispositivos muy estrechos: apilar los stats */
+    /* .about-stats { flex-direction: column; } */
+
+    .stat-box {
+        text-align: center; /* Centramos el texto dentro de cada caja de estadística */
+        flex: 1 1 30%; /* Permite 2 o 3 en una fila, luego envuelve */
+        max-width: 100px;
+    }
+
+    .stat-number {
+        font-size: 32px;
+    }
 }
 
 /* ======================= SECCIÓN DE HABILIDADES =========================== */
@@ -672,6 +746,68 @@ body::before {
 .stack-chip:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+
+    .skills-area {
+        padding: 60px 5%; /* Reduce el padding horizontal y vertical */
+    }
+
+    /* 1. Encabezado */
+    .skills-heading {
+        font-size: 36px; /* Reduce el tamaño del título principal */
+        margin-bottom: 40px;
+    }
+
+    /* 2. Grid de Habilidades */
+    .skills-grid {
+        /*
+          Nota: 'auto-fit' con 'minmax(300px, 1fr)' ya se encarga de que
+          solo haya una columna si la pantalla es menor de 300px.
+          Podemos forzar una sola columna si lo deseamos con '1fr'.
+        */
+        grid-template-columns: 1fr; /* Forzamos una sola columna en móvil */
+        gap: 30px; /* Mantenemos un buen espacio entre las tarjetas apiladas */
+        padding: 0 10px; /* Añadimos un pequeño padding interno para que no toque los bordes */
+    }
+
+    /* 3. Tarjetas de Habilidad */
+    .skill-card {
+        padding: 30px 20px; /* Reduce el padding interno de la tarjeta */
+    }
+
+    .card-title {
+        font-size: 22px; /* Reduce el tamaño del título de la tarjeta */
+    }
+
+    .card-description {
+        min-height: auto; /* Elimina la altura mínima, permitiendo que el texto se ajuste libremente */
+        font-size: 15px; /* Ligera reducción del tamaño del texto de la descripción */
+    }
+    
+    /* 4. Tags de Habilidades */
+    .skill-tags {
+        gap: 8px; /* Reduce el espacio entre los tags */
+    }
+
+    .skill-tags span {
+        font-size: 13px; /* Reduce el tamaño de la fuente de los tags */
+        padding: 5px 10px;
+    }
+    
+    /* --- Complemento Opcional: Stack Técnico --- */
+    .tech-stack-container {
+        padding-top: 30px;
+    }
+
+    .stack-chip {
+        font-size: 0.8em;
+    }
+}
+
+
+
 
 /* ======================= SECCIÓN DE PROYECTOS =========================== */
 .projects-area {
@@ -814,6 +950,70 @@ body::before {
   filter: brightness(1.1);
   box-shadow: 0 0 20px rgba(229, 77, 111, 0.8);
 }
+
+/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+
+    .projects-area {
+        padding: 60px 5%; /* Reducimos el padding general */
+    }
+
+    /* 1. Encabezado */
+    .projects-heading {
+        font-size: 36px; /* Reducimos el tamaño del título */
+        margin-bottom: 30px;
+    }
+
+    /* 2. Botones de Filtro (Clave para evitar desbordamiento) */
+    .project-filters {
+        /* Permite que los botones se envuelvan y se centren */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+        margin-bottom: 30px;
+    }
+    
+    .filter-btn, .filter-btn1 {
+        padding: 8px 18px; /* Reducimos el padding de los botones */
+        font-size: 14px;
+        margin: 5px; /* Aseguramos espacio entre ellos si se envuelven */
+    }
+
+    /* 3. Grid de Proyectos */
+    .projects-grid {
+        /* Forzamos una sola columna para que las tarjetas ocupen todo el ancho */
+        grid-template-columns: 1fr; 
+        gap: 25px; /* Reducimos el espacio entre las tarjetas apiladas */
+    }
+
+    /* 4. Tarjetas de Proyecto */
+    .project-card {
+        padding: 15px; /* Reducimos el padding interno de la tarjeta */
+    }
+
+    .project-description {
+        font-size: 15px; /* Reducimos ligeramente el tamaño del texto */
+        min-height: auto; /* Eliminamos la altura mínima para que se ajuste al contenido */
+        margin-bottom: 20px;
+    }
+
+    /* 5. Botones (Repository y Demo) */
+    .project-links {
+        /* Hacemos que los botones ocupen el 100% del ancho si es necesario o se alineen */
+        flex-direction: column; /* Apilamos los botones verticalmente para hacerlos más fáciles de tocar */
+        gap: 10px; /* Reducimos el espacio entre los botones apilados */
+    }
+    
+    .btn-repo,
+    .btn-demo {
+        width: 100%; /* Hacemos que ocupen todo el ancho de la tarjeta */
+        text-align: center;
+        padding: 12px 0; /* Ajustamos el padding para la nueva disposición */
+        font-size: 16px;
+    }
+}
+
+
 
 /* ------------------ Sección Línea de Tiempo (Experiencia/Certificados) ------------------ */
 .timeline-area {
@@ -998,31 +1198,70 @@ body::before {
   border-color: transparent rgba(255, 255, 255, 0.03) transparent transparent;
 }
 
-/* Media Queries para responsividad */
-@media screen and (max-width: 768px) {
-  .timeline-container::after {
-    left: 31px; /* Mueve la línea central a la izquierda para una sola columna */
-  }
+/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+    
+    .timeline-area {
+        padding: 60px 5%; /* Mantenemos padding general reducido */
+    }
 
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-    left: 0; /* Todos los elementos a la izquierda */
-  }
+    /* 1. Contenedor Principal: La clave es el padding izquierdo */
+    .timeline-container {
+        /* Añadimos un gran padding a la izquierda. Este padding será el "espacio" 
+           para la línea vertical y el punto, y las tarjetas se ajustarán dentro. */
+        padding: 20px 0 20px 40px; 
+        max-width: 100%; /* Aseguramos que no haya límites de ancho innecesarios */
+    }
 
-  .timeline-item.left .timeline-dot,
-  .timeline-item.right .timeline-dot {
-    left: 24px;
-    right: auto;
-  }
+    /* 2. La Línea Central Vertical */
+    .timeline-container::after {
+        left: 20px; /* CLAVE: Fija la línea vertical a la izquierda (donde empieza el padding) */
+        margin-left: 0;
+    }
 
-  .timeline-item.left .timeline-content::after,
-  .timeline-item.right .timeline-content::after {
-    border-color: transparent transparent transparent rgba(255, 255, 255, 0.03);
-    left: 60px;
-    right: auto;
-  }
+    /* 3. Ítems de la Línea de Tiempo: Colapso a una sola columna */
+    .timeline-item {
+        width: 100%; /* Ocupa el 100% del contenedor padre (que tiene el padding) */
+        padding: 0; /* Eliminamos el padding lateral que causaba el desborde */
+        padding-left: 30px; /* Pequeño espacio para que la tarjeta no toque la línea */
+        left: 0; /* Mueve todos los ítems al lado izquierdo */
+        margin-bottom: 25px; 
+    }
+    
+    /* 4. Puntos de la Línea de Tiempo: Reubica sobre la nueva línea */
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 11px; /* Posición X: (Línea a 20px - radio de 9px) = 11px */
+        right: auto; 
+        top: 20px; /* Ajustamos la posición vertical */
+    }
+    
+    /* 5. Contenido de las Tarjetas */
+    .timeline-content {
+        padding: 15px; /* Reducimos el padding interno de la tarjeta */
+        width: 100%; /* Aseguramos que la tarjeta use el espacio disponible */
+        box-sizing: border-box; /* CLAVE: Asegura que el padding interno no cause desborde */
+    }
+    
+    .timeline-title {
+        font-size: 20px;
+    }
+    
+    /* 6. Flechas Indicadoras: Ajusta la posición para que apunte a la línea */
+    .timeline-item.left .timeline-content::after,
+    .timeline-item.right .timeline-content::after {
+        content: " ";
+        right: auto;
+        left: -10px; /* Apunta a la izquierda, hacia la línea */
+        top: 25px; 
+        border-width: 10px 10px 10px 0; /* Gira la flecha a la izquierda */
+        border-color: transparent rgba(255, 255, 255, 0.03) transparent transparent;
+    }
+    
+    /* 7. Ajuste de Tags (por si acaso) */
+    .timeline-tags {
+        justify-content: flex-start;
+    }
 }
 
 /* ========================= SECCION DE CONTACTO ====================== */
@@ -1225,6 +1464,89 @@ body::before {
   }
 }
 
+
+/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+    
+    .contact-area {
+        padding: 60px 5%; /* Reducimos el padding general */
+    }
+
+    /* 1. Títulos y Descripción */
+    .contact-heading {
+        font-size: 36px; /* Reducimos el tamaño del título */
+        margin-bottom: 5px;
+    }
+    
+    .contact-description-text {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* 2. Contenedor Principal: Aseguramos el apilamiento */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px; /* Reducimos el espacio entre los dos bloques */
+    }
+
+    /* 3. Wrappers de Formulario y Redes Sociales */
+    .contact-form-wrapper,
+    .contact-social-wrapper {
+        width: 100%;
+        max-width: 95%; /* CLAVE: Usa un ancho más flexible que 500px, adaptándose al 95% del contenedor */
+        min-width: auto;
+        padding: 30px 20px; /* Reducimos el padding interno de las cajas */
+        margin: 0 auto; /* Asegura que la caja esté centrada si no usa el 100% del ancho */
+    }
+
+    /* --- Formulario --- */
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form {
+        gap: 15px; /* Aumentamos ligeramente el espacio entre los campos para ser más touch-friendly */
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px 15px; /* Reducimos el padding interno de los inputs */
+        font-size: 15px;
+    }
+    
+    .btn-send-message {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+    
+    /* --- Redes Sociales --- */
+    .social-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .social-text {
+        margin-bottom: 30px;
+    }
+
+    /* 4. Grid de Iconos Sociales */
+    .social-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Hace que el grid sea más flexible */
+        gap: 15px; /* Reducimos el espacio entre iconos */
+        max-width: 100%; /* Permite que el grid crezca si hay más iconos */
+    }
+
+    .social-icon-btn {
+        width: 48px; /* Ligeramente más pequeños */
+        height: 48px;
+    }
+    
+    .social-icon-btn i {
+        font-size: 22px;
+    }
+}
+
 /* =========================== FOOTER =============================== */
 
 .site-footer {
@@ -1244,13 +1566,6 @@ body::before {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   padding-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr; /* Una sola columna en móvil */
-    text-align: center;
-  }
 }
 
 /* Estilos de Títulos y Enlaces */
@@ -1324,4 +1639,59 @@ body::before {
     animation: none !important;
     transition: none !important;
   }
+}
+
+
+/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+    
+    .site-footer {
+        padding: 30px 0 0; /* Reducimos el padding superior */
+    }
+    
+    /* 1. Grid (ya colapsado a una columna) */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        text-align: center; /* CLAVE: Centra todo el texto dentro de cada columna */
+        gap: 30px; /* Reducimos el espacio entre las secciones apiladas */
+        padding: 0 5%; /* Aseguramos que tenga padding horizontal adecuado */
+        padding-bottom: 30px;
+    }
+    
+    /* 2. Títulos y Espaciado */
+    .footer-title {
+        margin-bottom: 10px; /* Reducimos el espacio debajo del título */
+    }
+
+    /* 3. Listas de Enlaces (Explora y Legal) */
+    .footer-section ul {
+        /* Centramos la lista al no estar alineada a la izquierda por defecto */
+        display: inline-block; 
+        text-align: center;
+    }
+    
+    .footer-section li {
+        margin-bottom: 5px; /* Reducimos el espacio entre ítems de la lista */
+    }
+
+    /* 4. Enlaces Sociales (Iconos) */
+    .social-links {
+        /* Centramos el contenedor de iconos */
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .social-links a {
+        margin: 0 8px; /* Ajustamos el margen horizontal entre los iconos */
+    }
+    
+    /* 5. Derechos de Autor */
+    .footer-bottom {
+        padding: 15px 5%; /* Ajustamos el padding para la línea de copyright */
+    }
+    
+    .footer-bottom small {
+        line-height: 1.4;
+    }
 }
