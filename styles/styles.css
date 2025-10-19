@@ -63,45 +63,7 @@ body::before {
   opacity: 0.3; /* Hace que el grid sea muy sutil */
 }
 
-/* Media Query para dispositivos móviles (hasta 768px) */
-@media (max-width: 768px) {
-    
-    body {
-        /* CLAVE: Aumentamos el tamaño del fondo para forzar que las manchas se expandan */
-        background-size: 300% 300%; 
-        
-        /* Ajustamos la posición de las manchas para que sean visibles en la vista vertical */
-        background-image: 
-            /* Mancha superior (Azul claro/Cyan) */
-            radial-gradient(
-                circle at 90% 15%, /* La movemos ligeramente */
-                rgba(125, 211, 250, 0.4) 0%,
-                transparent 50% /* Aumentamos el desvanecimiento */
-            ),
-            /* Mancha inferior (Azul Oscuro/Violeta) */
-            radial-gradient(
-                circle at 10% 85%, /* La movemos ligeramente */
-                rgba(39, 25, 190, 0.302) 0%,
-                transparent 45% /* Aumentamos el desvanecimiento */
-            );
-        
-        /* Opcional: Si quieres que las manchas se muevan sutilmente para que se vean */
-        /*
-        animation: subtleMobileMove 30s ease-in-out infinite alternate;
-        */
-    }
 
-    /* Opcional: Keyframes para movimiento sutil en móvil */
-    /*
-    @keyframes subtleMobileMove {
-        0% { background-position: 0% 0%; }
-        100% { background-position: 50% 50%; }
-    }
-    */
-    
-    /* El body::before (Rejilla) no necesita cambios, ya que position: fixed y 
-       width/height: 100% aseguran que la rejilla cubra toda la pantalla. */
-}
 
 /* ===================== SECCION DE HEADER ========================= */
 .header {
@@ -152,6 +114,11 @@ body::before {
 /* ---------------------------------------------------------------- */
 
 @media (max-width: 768px) {
+
+  .header{
+    background: transparent;
+  }
+
   /* 1. Mostrar el ícono de menú */
   .menu-icon {
     display: inline-block;
@@ -631,7 +598,7 @@ body::before {
     }
 
     .about-heading {
-        font-size: 36px;
+        font-size: 25px;
         margin-bottom: 20px;
     }
 
@@ -639,17 +606,12 @@ body::before {
         font-size: 16px;
         margin-bottom: 30px;
     }
-
-    /* --- Estadísticas: Cambiar a columna o apilar horizontalmente --- */
+    /* --- Estadísticas ---*/
     .about-stats {
-        /* Usamos flex-wrap para que se envuelvan si es necesario */
         flex-wrap: wrap; 
-        justify-content: center; /* Centramos el grupo de estadísticas */
-        gap: 30px; /* Reducimos el gap */
+        justify-content: center; 
+        gap:10px; 
     }
-    
-    /* Alternativa para dispositivos muy estrechos: apilar los stats */
-    /* .about-stats { flex-direction: column; } */
 
     .stat-box {
         text-align: center; /* Centramos el texto dentro de cada caja de estadística */
@@ -658,8 +620,19 @@ body::before {
     }
 
     .stat-number {
-        font-size: 32px;
+        font-size: 30px;
     }
+
+    .stat-number .plus,
+    .stat-number .percent {
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      margin-top: 10px;
+    }  
 }
 
 /* ======================= SECCIÓN DE HABILIDADES =========================== */
@@ -792,12 +765,14 @@ body::before {
 
     .skills-area {
         padding: 60px 5%; /* Reduce el padding horizontal y vertical */
+        padding-top: 10px;
     }
 
     /* 1. Encabezado */
     .skills-heading {
-        font-size: 36px; /* Reduce el tamaño del título principal */
+        font-size: 25px; /* Reduce el tamaño del título principal */
         margin-bottom: 40px;
+        margin-top: 0;
     }
 
     /* 2. Grid de Habilidades */
@@ -995,31 +970,30 @@ body::before {
 @media (max-width: 768px) {
 
     .projects-area {
-        padding: 60px 5%; /* Reducimos el padding general */
+        padding: 60px 5%;
+        padding-top: 0;
     }
 
     /* 1. Encabezado */
     .projects-heading {
-        font-size: 36px; /* Reducimos el tamaño del título */
+        font-size: 30px; /* Reducimos el tamaño del título */
         margin-bottom: 30px;
     }
 
-    /* 2. Botones de Filtro (Clave para evitar desbordamiento) */
+    /*Botones de Filtro */
     .project-filters {
-        /* Permite que los botones se envuelvan y se centren */
         display: flex;
         justify-content: center;
-        flex-wrap: wrap; 
         margin-bottom: 30px;
     }
     
-    .filter-btn, .filter-btn1 {
-        padding: 8px 18px; /* Reducimos el padding de los botones */
-        font-size: 14px;
-        margin: 5px; /* Aseguramos espacio entre ellos si se envuelven */
+    .filter-btn, .filter-btn.active {
+        padding: 8px 14px; 
+        font-size: 12px;
+        margin: 5px; 
     }
 
-    /* 3. Grid de Proyectos */
+    /* Grid de Proyectos */
     .projects-grid {
         /* Forzamos una sola columna para que las tarjetas ocupen todo el ancho */
         grid-template-columns: 1fr; 
@@ -1240,6 +1214,15 @@ body::before {
 
 /* === RESPONSIVE DESIGN === */
 @media screen and (max-width: 900px) {
+
+  .timeline-area {
+  padding-top: 0;
+}
+
+.projects-heading{
+  font-size: 30px;
+}
+
   .timeline-container::after {
     left: 10px; /* Línea se mueve al lado izquierdo */
   }
@@ -1273,8 +1256,13 @@ body::before {
 
 /* === Ajuste visual adicional para pantallas muy pequeñas === */
 @media screen and (max-width: 500px) {
+
+   .timeline-area {
+  padding-top: 0;
+  }
+
   .timeline-heading {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .timeline-intro-text {
@@ -1487,6 +1475,7 @@ body::before {
     
     .contact-area {
         padding: 60px 5%; /* Reducimos el padding general */
+        padding-top: 0;
     }
 
     /* 1. Títulos y Descripción */
