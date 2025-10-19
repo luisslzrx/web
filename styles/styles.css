@@ -64,7 +64,6 @@ body::before {
 }
 
 
-
 /* ===================== SECCION DE HEADER ========================= */
 .header {
   display: flex;
@@ -608,7 +607,6 @@ body::before {
     }
     /* --- Estadísticas ---*/
     .about-stats {
-        flex-wrap: wrap; 
         justify-content: center; 
         gap:10px; 
     }
