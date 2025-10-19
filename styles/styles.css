@@ -1,7 +1,7 @@
 :root {
   --dark-bg: #0d011f;
-  --primary-color: #7dd3fa; /* Tono violeta */
-  --secondary-color: #066d9d; /* Tono rosa/fucsia */
+  --primary-color: #7dd3fa; 
+  --secondary-color: #066d9d;
   --text-light: #ffffff;
   --text-gray: #a9a9a9;
   --dark-bg: #0d011f; /* Tono base, casi negro con violeta */
@@ -61,6 +61,46 @@ body::before {
     linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
   background-size: 50px 50px; /* Tamaño de la cuadrícula */
   opacity: 0.3; /* Hace que el grid sea muy sutil */
+}
+
+/* Media Query para dispositivos móviles (hasta 768px) */
+@media (max-width: 768px) {
+    
+    body {
+        /* CLAVE: Aumentamos el tamaño del fondo para forzar que las manchas se expandan */
+        background-size: 300% 300%; 
+        
+        /* Ajustamos la posición de las manchas para que sean visibles en la vista vertical */
+        background-image: 
+            /* Mancha superior (Azul claro/Cyan) */
+            radial-gradient(
+                circle at 90% 15%, /* La movemos ligeramente */
+                rgba(125, 211, 250, 0.4) 0%,
+                transparent 50% /* Aumentamos el desvanecimiento */
+            ),
+            /* Mancha inferior (Azul Oscuro/Violeta) */
+            radial-gradient(
+                circle at 10% 85%, /* La movemos ligeramente */
+                rgba(39, 25, 190, 0.302) 0%,
+                transparent 45% /* Aumentamos el desvanecimiento */
+            );
+        
+        /* Opcional: Si quieres que las manchas se muevan sutilmente para que se vean */
+        /*
+        animation: subtleMobileMove 30s ease-in-out infinite alternate;
+        */
+    }
+
+    /* Opcional: Keyframes para movimiento sutil en móvil */
+    /*
+    @keyframes subtleMobileMove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 50% 50%; }
+    }
+    */
+    
+    /* El body::before (Rejilla) no necesita cambios, ya que position: fixed y 
+       width/height: 100% aseguran que la rejilla cubra toda la pantalla. */
 }
 
 /* ===================== SECCION DE HEADER ========================= */
@@ -200,7 +240,7 @@ body::before {
   font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 20px;
-  background-image: linear-gradient(90deg, #9933ff, #ff5798 35%, #ffb833);
+  background-image: linear-gradient(90deg, #066d9d, #00b4d8 35%, #7dd3fa);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -230,7 +270,7 @@ body::before {
   text-decoration: none;
   color: var(--text-light);
   border-radius: 100px;
-  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  background-image: linear-gradient(90deg, #066d9d, #00b4d8 35%, #7dd3fa);
   box-shadow: 0 0 10px rgba(29, 50, 187, 0.5);
   transition: 0.4s;
 }
@@ -841,22 +881,27 @@ body::before {
   border: 1px solid var(--text-gray);
 }
 
-.filter-btn:not(.active-filter):hover {
+.filter-btn:not(.active):hover{
   border-color: var(--primary-color);
   color: var(--primary-color);
 }
 
-.filter-btn1 {
+.filter-btn.active {
   padding: 10px 25px;
   margin: 0 10px;
   font-size: 16px;
   font-weight: 500;
   border-radius: 30px;
   cursor: pointer;
-  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  background-image: linear-gradient(90deg, #066d9d, #00b4d8 35%, #7dd3fa);
   box-shadow: 0 0 10px rgba(29, 50, 187, 0.5);
   transition: 0.4s;
   color: white;
+  border: none;
+}
+
+.filter-btn:hover{
+  box-shadow: 0 0 10px rgba(29, 50, 187, 0.5);
 }
 
 /* --- Grid de Proyectos --- */
@@ -936,19 +981,14 @@ body::before {
 
 /* Estilo para el botón 'Demo' (Gradiente) */
 .btn-demo {
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  background-image: linear-gradient(90deg, #066d9d, #00b4d8 35%, #7dd3fa);
   color: var(--text-light);
-  border: 1px solid transparent;
-  box-shadow: 0 0 15px rgba(229, 77, 111, 0.5);
+  border: none;
 }
 
 .btn-demo:hover {
   filter: brightness(1.1);
-  box-shadow: 0 0 20px rgba(229, 77, 111, 0.8);
+  box-shadow: 0 0 20px var(--primary-color));
 }
 
 /* Media Query para tabletas y dispositivos móviles (hasta 768px) */
@@ -1343,12 +1383,7 @@ body::before {
   cursor: pointer;
   color: var(--text-light);
   border-radius: 100px;
-  background: linear-gradient(
-    90deg,
-    var(--secondary-color),
-    var(--primary-color)
-  );
-  background-image: linear-gradient(90deg, #9933ff, #ff5798 65%, #ffb833);
+  background: linear-gradient(90deg, #066d9d 10%, #00b4d8 35%, #7dd3fa);
   transition: 0.4s;
 }
 
