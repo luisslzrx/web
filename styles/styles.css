@@ -1198,70 +1198,52 @@ body::before {
   border-color: transparent rgba(255, 255, 255, 0.03) transparent transparent;
 }
 
-/* Media Query para tabletas y dispositivos móviles (hasta 768px) */
-@media (max-width: 768px) {
-    
-    .timeline-area {
-        padding: 60px 5%; /* Mantenemos padding general reducido */
-    }
+/* === RESPONSIVE DESIGN === */
+@media screen and (max-width: 900px) {
+  .timeline-container::after {
+    left: 10px; /* Línea se mueve al lado izquierdo */
+  }
 
-    /* 1. Contenedor Principal: La clave es el padding izquierdo */
-    .timeline-container {
-        /* Añadimos un gran padding a la izquierda. Este padding será el "espacio" 
-           para la línea vertical y el punto, y las tarjetas se ajustarán dentro. */
-        padding: 20px 0 20px 40px; 
-        max-width: 100%; /* Aseguramos que no haya límites de ancho innecesarios */
-    }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+  }
 
-    /* 2. La Línea Central Vertical */
-    .timeline-container::after {
-        left: 20px; /* CLAVE: Fija la línea vertical a la izquierda (donde empieza el padding) */
-        margin-left: 0;
-    }
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
 
-    /* 3. Ítems de la Línea de Tiempo: Colapso a una sola columna */
-    .timeline-item {
-        width: 100%; /* Ocupa el 100% del contenedor padre (que tiene el padding) */
-        padding: 0; /* Eliminamos el padding lateral que causaba el desborde */
-        padding-left: 30px; /* Pequeño espacio para que la tarjeta no toque la línea */
-        left: 0; /* Mueve todos los ítems al lado izquierdo */
-        margin-bottom: 25px; 
-    }
-    
-    /* 4. Puntos de la Línea de Tiempo: Reubica sobre la nueva línea */
-    .timeline-item.left .timeline-dot,
-    .timeline-item.right .timeline-dot {
-        left: 11px; /* Posición X: (Línea a 20px - radio de 9px) = 11px */
-        right: auto; 
-        top: 20px; /* Ajustamos la posición vertical */
-    }
-    
-    /* 5. Contenido de las Tarjetas */
-    .timeline-content {
-        padding: 15px; /* Reducimos el padding interno de la tarjeta */
-        width: 100%; /* Aseguramos que la tarjeta use el espacio disponible */
-        box-sizing: border-box; /* CLAVE: Asegura que el padding interno no cause desborde */
-    }
-    
-    .timeline-title {
-        font-size: 20px;
-    }
-    
-    /* 6. Flechas Indicadoras: Ajusta la posición para que apunte a la línea */
-    .timeline-item.left .timeline-content::after,
-    .timeline-item.right .timeline-content::after {
-        content: " ";
-        right: auto;
-        left: -10px; /* Apunta a la izquierda, hacia la línea */
-        top: 25px; 
-        border-width: 10px 10px 10px 0; /* Gira la flecha a la izquierda */
-        border-color: transparent rgba(255, 255, 255, 0.03) transparent transparent;
-    }
-    
-    /* 7. Ajuste de Tags (por si acaso) */
-    .timeline-tags {
-        justify-content: flex-start;
-    }
+  .timeline-dot {
+    left: 0;
+    right: auto;
+  }
+
+  .timeline-item .timeline-content {
+    text-align: left;
+    margin-left: 40px; /* Se separa del punto */
+  }
+
+  .timeline-item .timeline-content::after {
+    display: none; /* Quita las flechas */
+  }
+}
+
+/* === Ajuste visual adicional para pantallas muy pequeñas === */
+@media screen and (max-width: 500px) {
+  .timeline-heading {
+    font-size: 32px;
+  }
+
+  .timeline-intro-text {
+    font-size: 16px;
+  }
+
+  .timeline-content {
+    padding: 20px;
+  }
 }
 
 /* ========================= SECCION DE CONTACTO ====================== */
