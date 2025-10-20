@@ -1,6 +1,6 @@
 :root {
   --dark-bg: #0d011f;
-  --primary-color: #bbe7fc; 
+  --primary-color: #7dd3fa; 
   --secondary-color: #0585c4;
   --text-light: #ffffff;
   --text-gray: #a9a9a9;
@@ -199,7 +199,6 @@ body::before {
   font-weight: 700;
   margin-bottom: 0px;
 
- 
 }
 
 /* Estilo que GSAP aplicará a cada palabra */
@@ -1792,12 +1791,12 @@ body::before {
 .social-links a {
   font-size: 1.5rem;
   margin-right: 15px;
-  color: #9b59b6; /* color-primary-purple */
+  color: var(--primary-color);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #44aaff; /* color-primary-blue */
+  color: var(--secondary-color);
   transform: translateY(-2px);
 }
 
