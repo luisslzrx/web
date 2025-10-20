@@ -386,11 +386,12 @@ body::before {
 
 /* Media Query para tabletas y dispositivos móviles pequeños */
 @media (max-width: 768px) {
+
   .hero {
     flex-direction: column; /* Cambiar a columna*/
     flex-direction: column-reverse;
     text-align: center;
-    padding: 80px 5% 50px;
+    padding: 120px 5% 0px;
     min-height: auto;
     gap: 40px;
   }
@@ -398,6 +399,7 @@ body::before {
   /* 2. Contenido de Texto */
   .hero-content {
     max-width: 100%;
+    margin-top: 10px; /* antes era 150px */
   }
 
   /* 3. Tipografía (Ajuste del tamaño de la fuente para que no sea demasiado grande) */
