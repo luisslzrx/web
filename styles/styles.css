@@ -91,11 +91,11 @@ body::before {
 
 /* Estilos de escritorio (Mantener Navbar horizontal) */
 .navbar a {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--text-gray);
   text-decoration: none;
-  margin-left: 35px;
+  margin-left: 25px;
   transition: color 0.3s;
 }
 

@@ -42,34 +42,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //CODIGO PARA ANIMACION DESDE LA LIBRERIA DE GSAP
 
-
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Define el elemento de texto que quieres animar
-    const targetElement = document.querySelector('.greeting ');
+    const targetElement = document.querySelector('.greeting');
 
-    // Verifica que el elemento y el plugin SplitText (de GSAP) existan
-    if (!targetElement || typeof SplitText === 'undefined') {
-        console.warn("Elemento o librería de animación no encontrada.");
+    // Verifica la disponibilidad de SplitType
+    if (!targetElement || typeof SplitType === 'undefined') {
+        console.warn("Elemento o librería SplitType no encontrada. Animación omitida.");
         return;
     }
 
-    // 2. Inicializar SplitText: divide el texto en "words" (palabras)
-    const splitText = new SplitText(targetElement, {
-        type: "words",
-        wordsClass: "animated-word" 
+    // 2. Inicializar SplitType: divide el texto en "words" (palabras)
+    // Usamos SplitType para dividir el texto y obtener los targets.
+    const splitText = new SplitType(targetElement, { 
+        types: 'words', // Especificamos que queremos dividir por palabras
+        tagName: 'span' // Envuelve cada palabra en un <span>
     });
 
-    // 3. --- INICIO de la Animación GSAP ---
+    // 3. Define la animación GSAP para las palabras
+    // NOTA: Los targets para GSAP ahora son splitText.words
     gsap.from(splitText.words, {
-        // Estado INICIAL (Desde donde empieza a animar)
+        // Estado INICIAL
         opacity: 0,
         y: 30, // Se desliza 30px hacia arriba
-        filter: 'blur(2px)', // Inicia ligeramente borroso
+        filter: 'blur(3px)',
         
-        // Estado FINAL (A donde llega la animación)
-        duration: 1, // Tiempo que tarda CADA palabra en animarse
-        ease: "power2.out", // Curva de aceleración/desaceleración
-        stagger: 0.1, // CLAVE: El retraso entre el inicio de la animación de cada palabra (efecto escalonado)
+        // Estado FINAL
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.08, // Efecto escalonado
     });
-    // --- FIN de la Animación GSAP ---
 });
