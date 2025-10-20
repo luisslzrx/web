@@ -1,7 +1,7 @@
 :root {
   --dark-bg: #0d011f;
-  --primary-color: #7dd3fa; 
-  --secondary-color: #066d9d;
+  --primary-color: #bbe7fc; 
+  --secondary-color: #0585c4;
   --text-light: #ffffff;
   --text-gray: #a9a9a9;
   --dark-bg: #0d011f; /* Tono base, casi negro con violeta */
@@ -26,12 +26,12 @@ body {
   /* Efecto de Gradientes Radiales */
   background-image: radial-gradient(
       circle at 80% 10%,
-      rgba(125, 211, 250, 0.4) 0%,
+      color-mix(in srgb, var(--primary-color) 40%, transparent) 0%,
       transparent 45%
     ),
     radial-gradient(
       circle at 20% 95%,
-      rgba(39, 25, 190, 0.302) 0%,
+      color-mix(in srgb, var(--secondary-color) 40%, transparent) 0%,
       transparent 40%
     );
 
@@ -199,9 +199,12 @@ body::before {
   font-weight: 700;
   margin-bottom: 0px;
 
-  /*Animaciones */
-    animation: slideInUp 0.6s ease forwards;
-    animation-delay: 0.3s;
+ 
+}
+
+/* Estilo que GSAP aplicará a cada palabra */
+.animated-word {
+    display: inline-block; /* Es crucial para que la transformación funcione */
 }
 
 .role {
@@ -382,6 +385,10 @@ body::before {
 .hero-content > *,
 .hero-image-container {
     opacity: 0;
+}
+
+.greeting{
+  opacity: 1;
 }
 
 /* Media Query para tabletas y dispositivos móviles pequeños */

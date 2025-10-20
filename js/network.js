@@ -1,3 +1,6 @@
+
+//CODIGO PARA LA BARRA DE MENU RESPONSIVE
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById('menu-icon');
     const navbar = document.getElementById('navbar');
@@ -33,4 +36,40 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleMenu(); // Cierra el menú
         }
     });
+});
+
+
+
+//CODIGO PARA ANIMACION DESDE LA LIBRERIA DE GSAP
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Define el elemento de texto que quieres animar
+    const targetElement = document.querySelector('.greeting ');
+
+    // Verifica que el elemento y el plugin SplitText (de GSAP) existan
+    if (!targetElement || typeof SplitText === 'undefined') {
+        console.warn("Elemento o librería de animación no encontrada.");
+        return;
+    }
+
+    // 2. Inicializar SplitText: divide el texto en "words" (palabras)
+    const splitText = new SplitText(targetElement, {
+        type: "words",
+        wordsClass: "animated-word" 
+    });
+
+    // 3. --- INICIO de la Animación GSAP ---
+    gsap.from(splitText.words, {
+        // Estado INICIAL (Desde donde empieza a animar)
+        opacity: 0,
+        y: 30, // Se desliza 30px hacia arriba
+        filter: 'blur(2px)', // Inicia ligeramente borroso
+        
+        // Estado FINAL (A donde llega la animación)
+        duration: 1, // Tiempo que tarda CADA palabra en animarse
+        ease: "power2.out", // Curva de aceleración/desaceleración
+        stagger: 0.1, // CLAVE: El retraso entre el inicio de la animación de cada palabra (efecto escalonado)
+    });
+    // --- FIN de la Animación GSAP ---
 });
