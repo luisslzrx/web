@@ -73,3 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
         stagger: 0.08, // Efecto escalonado
     });
 });
+
+//CODIGO PARA ANIMACION EN PAGINA
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll('.service-item').forEach(el => observer.observe(el));
